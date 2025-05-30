@@ -1,0 +1,179 @@
+new_report_title_4_1:
+  - case1: 印象中标题规则-左膝退行性骨关节病1-软骨软化III级-多项类别
+    fangshe_bianhao: FS1
+    buweimingcheng: 膝
+    leibie: 外伤合并退变
+    xibuwei: 左膝
+    treename: 髌股关节
+    expect: 左膝退行性骨关节病
+    expect_content: 软骨软化III级
+
+new_report_title_kuan_1:
+  - case1: 印象中标题规则-双髋-股骨-坐骨撞击综合征
+    fangshe_bianhao: kuan1-1
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 双髋
+    expect: 双髋考虑股骨-坐骨撞击综合征，请结合临床体征
+    expect_content: 双髋股骨-坐骨间距减小，股方肌水肿
+  - case2: 印象中标题规则-左髋-股骨-坐骨撞击综合征
+    fangshe_bianhao: kuan1-2
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 左髋
+    expect: 左髋考虑股骨-坐骨撞击综合征，请结合临床体征
+    expect_content: 左髋股骨-坐骨间距减小，股方肌水肿
+  - case3: 印象中标题规则-右髋-股骨-坐骨撞击综合征
+    fangshe_bianhao: kuan1-3
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 右髋
+    expect: 右髋考虑股骨-坐骨撞击综合征，请结合临床体征
+    expect_content: 右髋股骨-坐骨间距减小，股方肌水肿
+
+
+new_report_title_kuan_2:
+  - case1: 印象中标题规则-双髋-退行性改变-软骨软化I级-1
+    fangshe_bianhao: kuan2-1
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 双髋
+    suntree: 双髋关节
+    ban_suizhong: No
+    expect: 双髋退行性改变：
+  - case2: 印象中标题规则-双髋-退行性改变-软骨软化I级-2
+    fangshe_bianhao: kuan2-2
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 双髋
+    suntree: 髋臼关节面
+    ban_suizhong: No
+    expect: 双髋退行性改变：
+  - case3: 印象中标题规则-双髋-退行性改变-软骨软化I级-3
+    fangshe_bianhao: kuan2-3
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 双髋
+    suntree: 股骨头关节面
+    ban_suizhong: No
+    expect: 双髋退行性改变：
+  - case4: 印象中标题规则-双髋-退行性改变-软骨软化I级，伴软骨下骨髓水肿-1
+    fangshe_bianhao: kuan2-4
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 双髋
+    suntree: 双髋关节
+    ban_suizhong: Y
+    expect: 双髋退行性改变：
+  - case5: 印象中标题规则-双髋-退行性改变-软骨软化I级，伴软骨下骨髓水肿-2
+    fangshe_bianhao: kuan2-5
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 双髋
+    suntree: 髋臼关节面
+    ban_suizhong: Y
+    expect: 双髋退行性改变：
+  - case6: 印象中标题规则-双髋-退行性改变-软骨软化I级，伴软骨下骨髓水肿-3
+    fangshe_bianhao: kuan2-6
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 双髋
+    suntree: 股骨头关节面
+    ban_suizhong: Y
+    expect: 双髋退行性改变：
+  - case7: 印象中标题规则-右髋-退行性改变-软骨软化I级-1
+    fangshe_bianhao: kuan2-7
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 右髋
+    suntree: 右髋关节
+    ban_suizhong: No
+    expect: 右髋退行性改变：
+  - case8: 印象中标题规则-右髋-退行性改变-软骨软化I级-2
+    fangshe_bianhao: kuan2-8
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 右髋
+    suntree: 髋臼关节面
+    ban_suizhong: No
+    expect: 右髋退行性改变：
+  - case9: 印象中标题规则-右髋-退行性改变-软骨软化I级-3
+    fangshe_bianhao: kuan2-9
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 右髋
+    suntree: 股骨头关节面
+    ban_suizhong: No
+    expect: 右髋退行性改变：
+  - case10: 印象中标题规则-右髋-退行性改变-软骨软化I级，伴软骨下骨髓水肿-1
+    fangshe_bianhao: kuan2-10
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 右髋
+    suntree: 右髋关节
+    ban_suizhong: Y
+    expect: 右髋退行性改变：
+  - case11: 印象中标题规则-右髋-退行性改变-软骨软化I级，伴软骨下骨髓水肿-2
+    fangshe_bianhao: kuan2-11
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 右髋
+    suntree: 髋臼关节面
+    ban_suizhong: Y
+    expect: 右髋退行性改变：
+  - case12: 印象中标题规则-右髋-退行性改变-软骨软化I级，伴软骨下骨髓水肿-3
+    fangshe_bianhao: kuan2-12
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 右髋
+    suntree: 股骨头关节面
+    ban_suizhong: Y
+    expect: 右髋退行性改变：
+  - case13: 印象中标题规则-左髋-退行性改变-软骨软化I级-1
+    fangshe_bianhao: kuan2-13
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 左髋
+    suntree: 左髋关节
+    ban_suizhong: No
+    expect: 左髋退行性改变：
+  - case14: 印象中标题规则-左髋-退行性改变-软骨软化I级-2
+    fangshe_bianhao: kuan2-14
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 左髋
+    suntree: 髋臼关节面
+    ban_suizhong: No
+    expect: 左髋退行性改变：
+  - case15: 印象中标题规则-左髋-退行性改变-软骨软化I级-3
+    fangshe_bianhao: kuan2-15
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 左髋
+    suntree: 股骨头关节面
+    ban_suizhong: No
+    expect: 左髋退行性改变：
+  - case16: 印象中标题规则-左髋-退行性改变-软骨软化I级，伴软骨下骨髓水肿-1
+    fangshe_bianhao: kuan2-16
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 左髋
+    suntree: 左髋关节
+    ban_suizhong: Y
+    expect: 左髋退行性改变：
+  - case17: 印象中标题规则-左髋-退行性改变-软骨软化I级，伴软骨下骨髓水肿-2
+    fangshe_bianhao: kuan2-17
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 左髋
+    suntree: 髋臼关节面
+    ban_suizhong: Y
+    expect: 左髋退行性改变：
+  - case18: 印象中标题规则-左髋-退行性改变-软骨软化I级，伴软骨下骨髓水肿-3
+    fangshe_bianhao: kuan2-18
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 左髋
+    suntree: 股骨头关节面
+    ban_suizhong: Y
+    expect: 左髋退行性改变：

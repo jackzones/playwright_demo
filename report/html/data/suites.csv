@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","2474","添加成功测试-kuan2-13-髋-退变-左髋-左髋关节-False-左髋退行性改变：","testcases","Fri May 30 17:51:03 CST 2025","passed","Fri May 30 17:51:06 CST 2025","TestAddReportKuanTuiBian","test_kuan_tui_bian","",""
+"","2453","添加成功测试-kuan2-16-髋-退变-左髋-左髋关节-Y-左髋退行性改变：","testcases","Fri May 30 17:51:07 CST 2025","passed","Fri May 30 17:51:09 CST 2025","TestAddReportKuanTuiBian","test_kuan_tui_bian","",""

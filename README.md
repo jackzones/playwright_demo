@@ -46,7 +46,7 @@ python -m venv venv
 
 ## 安装依赖 📌
 ```shell
-pip install -r requirements.txt
+pip install -r requirements.txt1
 ```
 
 ## 安装浏览器 🌐
