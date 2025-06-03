@@ -877,3 +877,7 @@ allure-results/
 
 */*.log
 */trace.zip
+
+report/
+videos/
+screenshots/

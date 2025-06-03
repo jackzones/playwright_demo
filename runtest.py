@@ -12,9 +12,9 @@ def run():
     # pytest.main(['testcase/web/test_login/test_jiegouhuarreport_jing_zui_tui_bian.py', '-m', 'not old_feature', '--alluredir=%s' % cm.dir_report_json])
     # pytest.main(['testcase/web/test_login/', '-m', 'not old_feature', '--alluredir=%s' % cm.dir_report_json, '--reruns=1', '--reruns-delay=2'])
     pytest.main([
-        'testcases/test_kuan_tui_bian.py',
+        'testcases/',
         '-m', 'debug',
-        '--lf',
+        # '--lf',
         '--alluredir', cm.dir_report_json  # 分开作为两个列表元素
     ])
     # pytest.main(['testcase/web/test_login/', '-m', 'smoke','--alluredir=%s' % cm.dir_report_json])

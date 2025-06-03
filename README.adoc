@@ -1,0 +1,16 @@
+
+= 项目介绍
+
+== 使用说明
+
+* runtest 中配置运行参数
+* 运行 runtest
+
+== 项目结构
+
+理论上一个部位的退变、外伤、损伤合并外伤分别对应一个报告页面。
+
+=== 元素和方法配置pages下
+
+pages下，`add_report_base_page.py` 是结构化报告页面的基类，`add_report_kuan_tui_bian.py` 是具体的报告页面类，是髋退变对应的报告页面类。
+
