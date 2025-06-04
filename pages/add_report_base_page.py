@@ -32,7 +32,7 @@ class AddReportBasePage:
 
         #弹出的标题选择
         self.select_title = self.page.locator("//header[@class='el-dialog__header']/span[@class='el-dialog__title']")
-        self.title_ok_btn = self.page.locator("//div[@class='el-overlay']//button[1]")
+        self.title_ok_btn = self.page.get_by_role("button", name="确认")
 
         #报告内容
         self.yingxiangxue_bianxian = self.page.locator("//div[@class='impression-text']")

@@ -14,3 +14,8 @@
 
 pages下，`add_report_base_page.py` 是结构化报告页面的基类，`add_report_kuan_tui_bian.py` 是具体的报告页面类，是髋退变对应的报告页面类。
 
+==== 使用技巧
+
+勾选checkbox，不能复用selenium的xpath定位，使用plaawright的录制定位方式如下：`self.data_guzhi_zengsheng = self.page.get_by_role("row", name="骨质增生 骨质增生，骨髓未见明显异常信号影").locator("span").nth(1)`
+
+然后data设置不同的值，勾选不同的数据。

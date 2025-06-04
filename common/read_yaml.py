@@ -31,3 +31,7 @@ new_report_bi_tian_title2 = yaml_para.read_yaml('new_report_bi_tian_title2')
 new_report_bi_tian_title3 = yaml_para.read_yaml('new_report_bi_tian_title3')
 
 new_report_title_jian_1 = yaml_para.read_yaml('new_report_title_jian_1')
+new_report_title_jian_2 = yaml_para.read_yaml('new_report_title_jian_2')
+new_report_title_jian_3 = yaml_para.read_yaml('new_report_title_jian_3')
+
+new_report_title_jian_wai_shang_1 = yaml_para.read_yaml('new_report_title_jian_wai_shang_1')
