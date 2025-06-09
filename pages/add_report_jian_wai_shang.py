@@ -53,6 +53,11 @@ class AddReportJianWaiShang(AddReportBasePage):
         self.yucun_checkbox_5 = self.page.get_by_role("row", name="Perthes损伤：前下盂唇撕裂III").locator("span").nth(1)
         self.yucun_checkbox_6 = self.page.get_by_role("row", name="GLAD损伤：肩胛盂前下盂唇撕裂III").locator("span").nth(1)
 
+        #标题选择
+        self.title_bhs_sunshang = self.page.get_by_title("关节Bankart-Hill-Sachs损伤").locator("span").nth(1)
+        self.title_bhs_sunshang_fan = self.page.get_by_title("关节反Bankart-反Hill-Sachs损伤").locator("span").nth(1)
+
+
     def page_jianxiayu_broken_data_select(self, data):
         sleep(0.03)
         if data == '骨挫伤':
@@ -204,6 +209,13 @@ class AddReportJianWaiShang(AddReportBasePage):
             self.tab_guanjieyucun.click()
             self.page_guanjieyucun_select_broken(tree, data)
 
+    def page_select_title1(self):
+        with allure.step("勾选标题：肩关节Bankart-Hill-Sachs损伤&肩关节反Bankart-反Hill-Sachs损伤"):
+            logger.info(f"勾选标题：肩关节Bankart-Hill-Sachs损伤&肩关节反Bankart-反Hill-Sachs损伤")
+            self.title_bhs_sunshang.click()
+            self.title_bhs_sunshang_fan.click()
+            self.title_ok_btn.click()
+
     def page_add_report_jian_waishang_title1(self, fangshe_bianhao, buweimingcheng, leibie, xibuwei, data1, tree2, suntree2, data2, tree3, suntree3, data3, tree4, data4, tree5, data5):
         self.add_simple_base_info(fangshe_bianhao, buweimingcheng, leibie, xibuwei)
         self.page_guanjie_duiwei_data(data1)
@@ -212,3 +224,25 @@ class AddReportJianWaiShang(AddReportBasePage):
         self.page_jianxiu_data(tree4, data4)
         self.page_guanjieyucun_data(tree5, data5)
         self.page_tijiao_report()
+
+    def page_add_report_jian_waishang_title2(self, fangshe_bianhao, buweimingcheng, leibie, xibuwei, data1, tree2, suntree2, data2, tree3, suntree3, data3, tree4, data4):
+        self.add_simple_base_info(fangshe_bianhao, buweimingcheng, leibie, xibuwei)
+        self.page_guanjie_duiwei_data(data1)
+        self.page_guzhi_select_broken(tree2, suntree2, data2)
+        self.page_guzhi_select_broken(tree3, suntree3, data3)
+        self.page_jianxiu_data(tree4, data4)
+        self.page_tijiao_report()
+
+    def page_add_report_jian_waishang_title3(self, fangshe_bianhao, buweimingcheng, leibie, xibuwei, data1, tree2, suntree2, data2, tree3, suntree3, data3, tree4, data4, tree5, data5, data6, tree7, suntree7, data7, tree8, suntree8, data8, tree9, data9):
+        self.add_simple_base_info(fangshe_bianhao, buweimingcheng, leibie, xibuwei)
+        self.page_guanjie_duiwei_data(data1)
+        self.page_guzhi_select_broken(tree2, suntree2, data2)
+        self.page_guzhi_select_broken(tree3, suntree3, data3)
+        self.page_jianxiu_data(tree4, data4)
+        self.page_guanjieyucun_data(tree5, data5)
+        self.page_guanjie_duiwei_data(data6)
+        self.page_guzhi_select_broken(tree7, suntree7, data7)
+        self.page_guzhi_select_broken(tree8, suntree8, data8)
+        self.page_jianxiu_data(tree9, data9)
+        self.page_tijiao_report()
+        self.page_select_title1()

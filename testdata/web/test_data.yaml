@@ -1274,3 +1274,226 @@ new_report_title_jian_wai_shang_1:
     tree5: 前下盂唇
     data5: '2'
     expect: 左肩关节Bankart-Hill-Sachs损伤：
+  - case2: 印象中标题规则-左肩关节Bankart-Hill-Sachs损伤
+    fangshe_bianhao: jian_waishang_1_2
+    buweimingcheng: 肩
+    leibie: 外伤
+    xibuwei: 左肩
+    data1: 前脱位
+    tree2: 肱骨
+    suntree2: 头后缘
+    data2: Hill-Sachs损伤：肱骨头后外侧面凹陷骨折
+    tree3: 肩胛盂
+    suntree3: 前缘
+    data3: 骨折、断端无移位
+    tree4: 肩胛下肌腱
+    data4: '3'
+    tree5: 前下盂唇
+    data5: '3'
+    expect: 左肩关节Bankart-Hill-Sachs损伤：
+  - case3: 印象中标题规则-左肩关节Bankart-Hill-Sachs损伤
+    fangshe_bianhao: jian_waishang_1_3
+    buweimingcheng: 肩
+    leibie: 外伤
+    xibuwei: 左肩
+    data1: 前脱位
+    tree2: 肱骨
+    suntree2: 头后缘
+    data2: Hill-Sachs损伤：肱骨头后外侧面凹陷骨折
+    tree3: 肩胛盂
+    suntree3: 前缘
+    data3: 骨折、断端移位
+    tree4: 肩胛下肌腱
+    data4: '4'
+    tree5: 前下盂唇
+    data5: '4'
+    expect: 左肩关节Bankart-Hill-Sachs损伤：
+  - case4: 印象中标题规则-左肩关节Bankart-Hill-Sachs损伤
+    fangshe_bianhao: jian_waishang_1_4
+    buweimingcheng: 肩
+    leibie: 外伤
+    xibuwei: 左肩
+    data1: 前脱位
+    tree2: 肱骨
+    suntree2: 头后缘
+    data2: Hill-Sachs损伤：肱骨头后外侧面凹陷骨折
+    tree3: 肩胛盂
+    suntree3: 前缘
+    data3: 骨折、断端移位
+    tree4: 肩胛下肌腱
+    data4: '5'
+    tree5: 前下盂唇
+    data5: '5'
+    expect: 左肩关节Bankart-Hill-Sachs损伤：
+  - case5: 印象中标题规则-左肩关节Bankart-Hill-Sachs损伤
+    fangshe_bianhao: jian_waishang_1_5
+    buweimingcheng: 肩
+    leibie: 外伤
+    xibuwei: 左肩
+    data1: 前脱位
+    tree2: 肱骨
+    suntree2: 头后缘
+    data2: Hill-Sachs损伤：肱骨头后外侧面凹陷骨折
+    tree3: 肩胛盂
+    suntree3: 前缘
+    data3: 骨折、断端移位
+    tree4: 肩胛下肌腱
+    data4: '5'
+    tree5: 前下盂唇
+    data5: '6'
+    expect: 左肩关节Bankart-Hill-Sachs损伤：
+  - case6: 印象中标题规则-右肩关节Bankart-Hill-Sachs损伤
+    fangshe_bianhao: jian_waishang_1_5
+    buweimingcheng: 肩
+    leibie: 外伤
+    xibuwei: 右肩
+    data1: 前脱位
+    tree2: 肱骨
+    suntree2: 头后缘
+    data2: Hill-Sachs损伤：肱骨头后外侧面骨挫伤
+    tree3: 肩胛盂
+    suntree3: 前缘
+    data3: 骨折、断端移位
+    tree4: 肩胛下肌腱
+    data4: '5'
+    tree5: 前下盂唇
+    data5: '6'
+    expect: 右肩关节Bankart-Hill-Sachs损伤：
+
+
+new_report_title_jian_wai_shang_2:
+  - case1: 印象中标题规则-左肩关节反Bankart-反Hill-Sachs损伤
+    fangshe_bianhao: jian_waishang_2_1
+    buweimingcheng: 肩
+    leibie: 外伤
+    xibuwei: 左肩
+    data1: 后脱位
+    tree2: 肱骨
+    suntree2: 头前缘
+    data2: 反Hill-Sachs损伤：肱骨头前内侧面骨挫伤
+    tree3: 肩胛盂
+    suntree3: 后缘
+    data3: 骨挫伤
+    tree4: 冈下肌腱
+    data4: '2'
+    expect: 左肩关节反Bankart-反Hill-Sachs损伤：
+  - case2: 印象中标题规则-左肩关节反Bankart-反Hill-Sachs损伤
+    fangshe_bianhao: jian_waishang_2_2
+    buweimingcheng: 肩
+    leibie: 外伤
+    xibuwei: 左肩
+    data1: 后脱位
+    tree2: 肱骨
+    suntree2: 头前缘
+    data2: 反Hill-Sachs损伤：肱骨头前内侧面凹陷骨折
+    tree3: 肩胛盂
+    suntree3: 后缘
+    data3: 骨折、断端无移位
+    tree4: 冈下肌腱
+    data4: '3'
+    expect: 左肩关节反Bankart-反Hill-Sachs损伤：
+  - case3: 印象中标题规则-左肩关节反Bankart-反Hill-Sachs损伤
+    fangshe_bianhao: jian_waishang_2_3
+    buweimingcheng: 肩
+    leibie: 外伤
+    xibuwei: 左肩
+    data1: 后脱位
+    tree2: 肱骨
+    suntree2: 头前缘
+    data2: 反Hill-Sachs损伤：肱骨头前内侧面骨挫伤
+    tree3: 肩胛盂
+    suntree3: 后缘
+    data3: 骨折、断端移位
+    tree4: 冈下肌腱
+    data4: '4'
+    expect: 左肩关节反Bankart-反Hill-Sachs损伤：
+  - case4: 印象中标题规则-左肩关节反Bankart-反Hill-Sachs损伤
+    fangshe_bianhao: jian_waishang_2_4
+    buweimingcheng: 肩
+    leibie: 外伤
+    xibuwei: 左肩
+    data1: 后脱位
+    tree2: 肱骨
+    suntree2: 头前缘
+    data2: 反Hill-Sachs损伤：肱骨头前内侧面凹陷骨折
+    tree3: 肩胛盂
+    suntree3: 后缘
+    data3: 骨折、断端移位
+    tree4: 冈下肌腱
+    data4: '5'
+    expect: 左肩关节反Bankart-反Hill-Sachs损伤：
+  - case5: 印象中标题规则-右肩关节反Bankart-反Hill-Sachs损伤
+    fangshe_bianhao: jian_waishang_2_5
+    buweimingcheng: 肩
+    leibie: 外伤
+    xibuwei: 右肩
+    data1: 后脱位
+    tree2: 肱骨
+    suntree2: 头前缘
+    data2: 反Hill-Sachs损伤：肱骨头前内侧面凹陷骨折
+    tree3: 肩胛盂
+    suntree3: 后缘
+    data3: 骨折、断端移位
+    tree4: 冈下肌腱
+    data4: '3'
+    expect: 右肩关节反Bankart-反Hill-Sachs损伤：
+
+new_report_title_jian_wai_shang_4:
+  - case1: 印象中标题规则-不触发-左肩关节反Bankart-反Hill-Sachs损伤
+    fangshe_bianhao: jian_waishang_4_1
+    buweimingcheng: 肩
+    leibie: 外伤
+    xibuwei: 左肩
+    data1: 后脱位
+    tree2: 肱骨
+    suntree2: 头前缘
+    data2: 反Hill-Sachs损伤：肱骨头前内侧面骨挫伤
+    tree3: 肩胛盂
+    suntree3: 后缘
+    data3: 骨挫伤
+    tree4: 肩胛下肌腱
+    data4: '2'
+    expect: 左肩关节反Bankart-反Hill-Sachs损伤：
+  - case2: 印象中标题规则-不触发-右肩关节反Bankart-反Hill-Sachs损伤
+    fangshe_bianhao: jian_waishang_4_2
+    buweimingcheng: 肩
+    leibie: 外伤
+    xibuwei: 右肩
+    data1: 后脱位
+    tree2: 肱骨
+    suntree2: 头前缘
+    data2: 反Hill-Sachs损伤：肱骨头前内侧面凹陷骨折
+    tree3: 肩胛盂
+    suntree3: 后缘
+    data3: 骨折、断端移位
+    tree4: 冈下肌腱
+    data4: '6'
+    expect: 右肩关节反Bankart-反Hill-Sachs损伤：
+
+new_report_title_jian_wai_shang_3:
+  - case1: 印象中标题规则-左肩关节Bankart-Hill-Sachs损伤、左肩关节反Bankart-反Hill-Sachs损伤
+    fangshe_bianhao: jian_waishang_3_1
+    buweimingcheng: 肩
+    leibie: 外伤
+    xibuwei: 左肩
+    data1: 前脱位
+    tree2: 肱骨
+    suntree2: 头后缘
+    data2: Hill-Sachs损伤：肱骨头后外侧面凹陷骨折
+    tree3: 肩胛盂
+    suntree3: 前缘
+    data3: 骨挫伤
+    tree4: 肩胛下肌腱
+    data4: '2'
+    tree5: 前下盂唇
+    data5: '2'
+    data6: 后脱位
+    tree7: 肱骨
+    suntree7: 头前缘
+    data7: 反Hill-Sachs损伤：肱骨头前内侧面骨挫伤
+    tree8: 肩胛盂
+    suntree8: 后缘
+    data8: 骨挫伤
+    tree9: 冈下肌腱
+    data9: '2'
+    expect: 左肩关节Bankart-Hill-Sachs损伤，关节反Bankart-反Hill-Sachs损伤：
