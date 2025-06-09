@@ -1262,10 +1262,15 @@ new_report_title_jian_wai_shang_1:
     buweimingcheng: 肩
     leibie: 外伤
     xibuwei: 左肩
-    suntree1: 喙突与肱骨小结节脂肪间隙
-    tree1: 肱骨小结节
-    data1: 骨质增生
-    tree2: 肩胛下肌腱
-    suntree2: 肩袖部
-    data: '5'
+    data1: 前脱位
+    tree2: 肱骨
+    suntree2: 头后缘
+    data2: Hill-Sachs损伤：肱骨头后外侧面骨挫伤
+    tree3: 肩胛盂
+    suntree3: 前缘
+    data3: 骨挫伤
+    tree4: 肩胛下肌腱
+    data4: '2'
+    tree5: 前下盂唇
+    data5: '2'
     expect: 左肩关节Bankart-Hill-Sachs损伤：

@@ -41,7 +41,6 @@ class TestAddReportJianTuiBian:
         with allure.step("开始断言"):
             assert expect in info
 
-    @pytest.mark.debug
     @allure.story("报告添加-印象标题-左/右喙突下撞击综合征，左/右肩峰下撞击综合征")
     @allure.title("添加成功测试-{fangshe_bianhao}-{buweimingcheng}-{leibie}-{xibuwei}-{suntree1}-{tree1}-{data1}-{tree2}-{suntree2}-{data2}-{suntree3}-{tree3}-{data3}-{tree4}-{suntree4}-{data4}-{expect}")
     @pytest.mark.parametrize("fangshe_bianhao, buweimingcheng, leibie, xibuwei, suntree1, tree1, data1, tree2, suntree2, data2, suntree3, tree3, data3, tree4, suntree4, data4, expect", new_report_title_jian_3)

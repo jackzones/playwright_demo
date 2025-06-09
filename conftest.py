@@ -24,7 +24,7 @@ def extract_domain(url_string):
 def page(pytestconfig):
     with sync_playwright() as p:
         logger.info("page session fixture starting....")
-        browser = p.chromium.launch(headless=True, timeout=5000)
+        browser = p.chromium.launch(headless=False, timeout=5000)
         context = browser.new_context(viewport={"width": 1920, "height": 1080}, record_video_dir="videos/")
         page = context.new_page()
         # 设置默认超时时间为4秒（3000毫秒）
@@ -32,7 +32,7 @@ def page(pytestconfig):
         context.tracing.start(screenshots=True, snapshots=True, sources=True)
         yield page
         logger.info("page session fixture closing.......")
-        base_url = pytestconfig.getoption("base_url") or "http://192.168.1.104:9104"
+        base_url = pytestconfig.getoption("base_url") or "http://192.168.1.70:9104"
         domain = extract_domain(base_url).replace(".", "_")
         logger.info("stop tracing...")
         context.tracing.stop(path=f"{domain}_trace.zip")
@@ -43,7 +43,7 @@ def page(pytestconfig):
 def auth_page():
     with sync_playwright() as p:
         logger.info("page session fixture starting....")
-        browser = p.chromium.launch(headless=True, timeout=10_000)
+        browser = p.chromium.launch(headless=False, timeout=10_000)
         logger.info("使用auth.json文件恢复登录状态")
         base_path = os.path.dirname(os.path.realpath(__file__))
         context = browser.new_context(
@@ -65,7 +65,7 @@ def _login(page, pytestconfig, is_goto_project_detail=False):
     if base_url := pytestconfig.getoption("base_url"):
         logger.info(f"命令行传入参数，base_url={base_url}")
     else:
-        default_url = "http://192.168.1.104:9104"
+        default_url = "http://192.168.1.70:9104"
         logger.warning(f"没有传入base-url，会使用默认base_url = {default_url}，如果需要使用--base-url=xxx修改")
         base_url = default_url
 
