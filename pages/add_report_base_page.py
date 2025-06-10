@@ -12,6 +12,7 @@ class AddReportBasePage:
         self.xi = self.page.get_by_role("option", name="膝")
         self.kuan = self.page.get_by_role("option", name="髋")
         self.jian = self.page.get_by_role("option", name="肩")
+        self.huai = self.page.get_by_role("option", name="踝")
         self.leibie = self.page.locator("div").filter(has_text=re.compile(r"^类别请选择$")).locator("span")
         self.tuibian = self.page.get_by_role("option", name="退变", exact=True)
         self.gugutou_huaisi = self.page.get_by_role("option", name="股骨头坏死")
@@ -21,6 +22,9 @@ class AddReportBasePage:
         self.youxi = self.page.get_by_text("右膝")
         self.zuojian = self.page.get_by_text("左肩")
         self.youjian = self.page.get_by_text("右肩")
+        self.zuohuai = self.page.get_by_text("左踝")
+        self.youhuai = self.page.get_by_text("右踝")
+
         self.xi_select_assure = self.page.get_by_role("button", name="确认")
 
         #提交报告，确认按钮
@@ -48,6 +52,12 @@ class AddReportBasePage:
             self.kuan.click()
         elif buweimingcheng == "肩":
             self.jian.click()
+        elif buweimingcheng == "踝":
+            self.huai.click()
+        else:
+            logger.error(f"无效的数据参数: {buweimingcheng}")
+            raise ValueError(f"无效的部位参数: {buweimingcheng}")  # 抛出异常
+
 
     def leibie_select(self, leibie: str):
         self.leibie.click()
@@ -59,6 +69,9 @@ class AddReportBasePage:
             self.waishang.click()
         elif leibie == "外伤合并退变":
             self.tuibian_waishang.click()
+        else:
+            logger.error(f"无效的数据参数: {leibie}")
+            raise ValueError(f"无效的部位参数: {leibie}")
 
     def xi_select(self, xibuwei=None):
         if xibuwei == "左膝":
@@ -69,8 +82,14 @@ class AddReportBasePage:
             self.zuojian.click()
         elif xibuwei == "右肩":
             self.youjian.click()
+        elif xibuwei == "左踝":
+            self.zuohuai.click()
+        elif xibuwei == "右踝":
+            self.youhuai.click()
         elif xibuwei is not None:
+            logger.error(f"无效的数据参数: {xibuwei}")
             raise ValueError(f"无效的部位参数: {xibuwei}")
+
 
 
     @allure.step("添加简单基本信息")

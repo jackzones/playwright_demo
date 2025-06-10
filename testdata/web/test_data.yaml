@@ -1497,3 +1497,69 @@ new_report_title_jian_wai_shang_3:
     tree9: 冈下肌腱
     data9: '2'
     expect: 左肩关节Bankart-Hill-Sachs损伤，关节反Bankart-反Hill-Sachs损伤：
+
+new_report_title_huai_wai_shang_1:
+  - case1: 印象中标题规则-踝外伤-左踝副舟骨综合征
+    fangshe_bianhao: huai_waishang_1_1
+    buweimingcheng: 踝
+    leibie: 外伤
+    xibuwei: 左踝
+    tree1: 舟骨
+    tree2: 副舟骨
+    expect: 左踝副舟骨综合征：
+  - case2: 印象中标题规则-踝外伤-右踝副舟骨综合征
+    fangshe_bianhao: huai_waishang_1_2
+    buweimingcheng: 踝
+    leibie: 外伤
+    xibuwei: 右踝
+    tree1: 舟骨
+    tree2: 副舟骨
+    expect: 右踝副舟骨综合征：
+
+new_report_title_huai_wai_shang_2:
+  - case1: 印象中标题规则-踝外伤-左踝距后三角骨综合征
+    fangshe_bianhao: huai_waishang_2_1
+    buweimingcheng: 踝
+    leibie: 外伤
+    xibuwei: 左踝
+    tree1: 距骨
+    tree2: 距后三角骨
+    expect: 左踝距后三角骨综合征：
+  - case2: 印象中标题规则-踝外伤-右踝距后三角骨综合征
+    fangshe_bianhao: huai_waishang_2_2
+    buweimingcheng: 踝
+    leibie: 外伤
+    xibuwei: 右踝
+    tree1: 距骨
+    tree2: 距后三角骨
+    expect: 右踝距后三角骨综合征：
+
+new_report_title_huai_wai_shang_3:
+  - case1: 印象中标题规则-踝外伤-左踝副舟骨综合征，距后三角骨综合征
+    fangshe_bianhao: huai_waishang_3_1
+    buweimingcheng: 踝
+    leibie: 外伤
+    xibuwei: 左踝
+    tree1: 舟骨
+    tree2: 副舟骨
+    tree3: 距骨
+    tree4: 距后三角骨
+    expect: 左踝副舟骨综合征，距后三角骨综合征：
+
+new_report_title_huai_wai_shang_4:
+  - case1: 印象中标题规则-不触发-踝外伤-距后三角骨综合征
+    fangshe_bianhao: huai_waishang_4_1
+    buweimingcheng: 踝
+    leibie: 外伤
+    xibuwei: 左踝
+    tree1: 距骨
+    tree2: 舟骨
+    expect: 距后三角骨综合征：
+  - case2: 印象中标题规则-不触发-踝外伤-副舟骨综合征
+    fangshe_bianhao: huai_waishang_4_2
+    buweimingcheng: 踝
+    leibie: 外伤
+    xibuwei: 左踝
+    tree1: 副舟骨
+    tree2: 距后三角骨
+    expect: 副舟骨综合征：

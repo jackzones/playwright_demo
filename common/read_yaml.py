@@ -38,3 +38,8 @@ new_report_title_jian_wai_shang_1 = yaml_para.read_yaml('new_report_title_jian_w
 new_report_title_jian_wai_shang_2 = yaml_para.read_yaml('new_report_title_jian_wai_shang_2')
 new_report_title_jian_wai_shang_3 = yaml_para.read_yaml('new_report_title_jian_wai_shang_3')
 new_report_title_jian_wai_shang_4 = yaml_para.read_yaml('new_report_title_jian_wai_shang_4')
+
+new_report_title_huai_wai_shang_1 = yaml_para.read_yaml('new_report_title_huai_wai_shang_1')
+new_report_title_huai_wai_shang_2 = yaml_para.read_yaml('new_report_title_huai_wai_shang_2')
+new_report_title_huai_wai_shang_3 = yaml_para.read_yaml('new_report_title_huai_wai_shang_3')
+new_report_title_huai_wai_shang_4 = yaml_para.read_yaml('new_report_title_huai_wai_shang_4')
