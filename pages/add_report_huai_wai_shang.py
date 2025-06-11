@@ -11,6 +11,7 @@ class AddReportHuaiWaiShang(AddReportBasePage):
         super().__init__(page)
         # 可以添加膝退变特有的元素定位
         self.tab_guzhi_gusui_suizhong = self.page.locator('span.el-radio-button__inner:has-text("骨质（骨髓水肿）")')
+        # self.tab_guanjie_ruangu = self.page.locator(".innerTag").get_by_text("关节软骨及软骨下骨")
         #骨质（骨髓水肿）
         self.tree_gusui_suizhong_zhougu = self.page.get_by_text("舟骨", exact=True)
         self.tree_gusui_suizhong_juhou_sanjiaogu = self.page.get_by_text("距后三角骨")

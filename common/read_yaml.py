@@ -43,3 +43,13 @@ new_report_title_huai_wai_shang_1 = yaml_para.read_yaml('new_report_title_huai_w
 new_report_title_huai_wai_shang_2 = yaml_para.read_yaml('new_report_title_huai_wai_shang_2')
 new_report_title_huai_wai_shang_3 = yaml_para.read_yaml('new_report_title_huai_wai_shang_3')
 new_report_title_huai_wai_shang_4 = yaml_para.read_yaml('new_report_title_huai_wai_shang_4')
+
+new_report_title_wan_tuibian_1 = yaml_para.read_yaml('new_report_title_wan_tuibian_1')
+new_report_title_wan_tuibian_2 = yaml_para.read_yaml('new_report_title_wan_tuibian_2')
+new_report_title_wan_tuibian_3 = yaml_para.read_yaml('new_report_title_wan_tuibian_3')
+new_report_title_wan_tuibian_4 = yaml_para.read_yaml('new_report_title_wan_tuibian_4')
+new_report_title_wan_tuibian_5 = yaml_para.read_yaml('new_report_title_wan_tuibian_5')
+new_report_title_wan_tuibian_6 = yaml_para.read_yaml('new_report_title_wan_tuibian_6')
+new_report_title_wan_tuibian_7 = yaml_para.read_yaml('new_report_title_wan_tuibian_7')
+new_report_title_wan_tuibian_8 = yaml_para.read_yaml('new_report_title_wan_tuibian_8')
+new_report_title_wan_tuibian_9 = yaml_para.read_yaml('new_report_title_wan_tuibian_9')

@@ -53,6 +53,7 @@ class TestAddReportJianTuiBian:
         with allure.step("开始断言"):
             assert expect in info
 
+    @pytest.mark.debug
     @allure.story("报告添加-必填规则变化")
     @allure.title("添加成功测试-{fangshe_bianhao}-{buweimingcheng}-{leibie}-{xibuwei}-{louzhen_text}-{yingxiangxue_biaoxian_text}-{yinxiang_text}")
     @pytest.mark.parametrize("fangshe_bianhao, buweimingcheng, leibie, xibuwei, louzhen_text, yingxiangxue_biaoxian_text, yinxiang_text", new_report_bi_tian_title3)
@@ -69,5 +70,5 @@ class TestAddReportJianTuiBian:
         with allure.step("开始断言"):
             info_yinxiang = page.page_get_form_info_content()
             info_yingxiangxue_biaoxian = page.page_get_form_info_impression_text()
-            page.assert_str_equal(info_yingxiangxue_biaoxian, yingxiangxue_biaoxian_text)  # 修改为使用新方法
             assert yinxiang_text == info_yinxiang
+            page.assert_str_equal(info_yingxiangxue_biaoxian, yingxiangxue_biaoxian_text)  # 修改为使用新方法

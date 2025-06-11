@@ -106,5 +106,5 @@ class TestAddReportKuanTuiBian:
         with allure.step("开始断言"):
             info_yinxiang = page.page_get_form_info_content()
             info_yingxiangxue_biaoxian = page.page_get_form_info_impression_text()
-            page.assert_str_equal(info_yingxiangxue_biaoxian, yingxiangxue_biaoxian_text)  # 修改为使用新方法
             assert yinxiang_text == info_yinxiang
+            page.assert_str_equal(info_yingxiangxue_biaoxian, yingxiangxue_biaoxian_text)  # 修改为使用新方法

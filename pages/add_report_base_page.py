@@ -13,6 +13,7 @@ class AddReportBasePage:
         self.kuan = self.page.get_by_role("option", name="髋")
         self.jian = self.page.get_by_role("option", name="肩")
         self.huai = self.page.get_by_role("option", name="踝")
+        self.wan = self.page.get_by_role("option", name="腕")
         self.leibie = self.page.locator("div").filter(has_text=re.compile(r"^类别请选择$")).locator("span")
         self.tuibian = self.page.get_by_role("option", name="退变", exact=True)
         self.gugutou_huaisi = self.page.get_by_role("option", name="股骨头坏死")
@@ -24,6 +25,8 @@ class AddReportBasePage:
         self.youjian = self.page.get_by_text("右肩")
         self.zuohuai = self.page.get_by_text("左踝")
         self.youhuai = self.page.get_by_text("右踝")
+        self.zuowan = self.page.get_by_text("左腕")
+        self.youwan = self.page.get_by_text("右腕")
 
         self.xi_select_assure = self.page.get_by_role("button", name="确认")
 
@@ -41,8 +44,9 @@ class AddReportBasePage:
         #报告内容
         self.yingxiangxue_bianxian = self.page.locator("//div[@class='impression-text']")
         self.impression = self.page.locator("//div[@class='impression-text impressS']")
-        self.impression_rule_title = self.page.locator("//span[@class='rule_title']")
-
+        ##上、下标题
+        self.top_title = self.page.locator('div.impression-text.impressS span.rule_title').first
+        self.bottom_title = self.page.locator('div.impression-text.impressS span.rule_title').nth(1)
 
     def buweimingcheng_select(self, buweimingcheng: str):
         self.buweimingcheng.click()
@@ -54,6 +58,8 @@ class AddReportBasePage:
             self.jian.click()
         elif buweimingcheng == "踝":
             self.huai.click()
+        elif buweimingcheng == "腕":
+            self.wan.click()
         else:
             logger.error(f"无效的数据参数: {buweimingcheng}")
             raise ValueError(f"无效的部位参数: {buweimingcheng}")  # 抛出异常
@@ -86,6 +92,10 @@ class AddReportBasePage:
             self.zuohuai.click()
         elif xibuwei == "右踝":
             self.youhuai.click()
+        elif xibuwei == "左腕":
+            self.zuowan.click()
+        elif xibuwei == "右腕":
+            self.youwan.click()
         elif xibuwei is not None:
             logger.error(f"无效的数据参数: {xibuwei}")
             raise ValueError(f"无效的部位参数: {xibuwei}")
@@ -108,10 +118,16 @@ class AddReportBasePage:
         # 返回元素的文本内容
         return self.impression.inner_text()
 
-    def page_get_form_info_rule_title(self):
-        """获取印象信息-标题"""
-        self.impression_rule_title.wait_for(state="visible")
-        return self.impression_rule_title.inner_text()
+    def page_get_form_info_rule_title_top(self):
+        """获取印象信息-上标题"""
+        #读出的文本无冒号，所以暂时不用此接口
+        self.top_title.wait_for(state="visible")
+        return self.top_title.inner_text()
+
+    def page_get_form_info_rule_title_bottom(self):
+        """获取印象信息-下标题"""
+        self.bottom_title.wait_for(state="visible")
+        return self.bottom_title.inner_text()
 
     def page_tijiao_report(self):
         with allure.step("点击提交报告"):
@@ -129,11 +145,6 @@ class AddReportBasePage:
             logger.info(f"查看漏诊提示")
             self.louzhen_assure_text.wait_for(state="visible")
             return self.louzhen_assure_text.inner_text()
-
-    def page_get_form_info_content_title(self):
-        """印象信息 标题"""
-        self.impression.wait_for(state="visible")
-        return self.impression_rule_title.inner_text()
 
     def page_get_form_info_impression_text(self):
         """影像学表现"""
