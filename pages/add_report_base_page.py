@@ -14,7 +14,8 @@ class AddReportBasePage:
         self.jian = self.page.get_by_role("option", name="肩")
         self.huai = self.page.get_by_role("option", name="踝")
         self.wan = self.page.get_by_role("option", name="腕")
-        self.leibie = self.page.locator("div").filter(has_text=re.compile(r"^类别请选择$")).locator("span")
+        # self.leibie = self.page.locator("div").filter(has_text=re.compile(r"^类别请选择$")).locator("span")
+        self.leibie = self.page.locator("div:nth-child(8) > .el-form-item__content > .el-select > .el-select__wrapper > .el-select__selection > div:nth-child(2)")
         self.tuibian = self.page.get_by_role("option", name="退变", exact=True)
         self.gugutou_huaisi = self.page.get_by_role("option", name="股骨头坏死")
         self.waishang = self.page.get_by_role("option", name="外伤", exact=True)
@@ -27,6 +28,8 @@ class AddReportBasePage:
         self.youhuai = self.page.get_by_text("右踝")
         self.zuowan = self.page.get_by_text("左腕")
         self.youwan = self.page.get_by_text("右腕")
+        self.jingzui = self.page.get_by_text("颈椎")
+        self.xiongzui = self.page.get_by_text("胸椎")
 
         self.xi_select_assure = self.page.get_by_role("button", name="确认")
 
@@ -60,6 +63,10 @@ class AddReportBasePage:
             self.huai.click()
         elif buweimingcheng == "腕":
             self.wan.click()
+        elif buweimingcheng == "颈椎":
+            self.jingzui.click()
+        elif buweimingcheng == "胸椎":
+            self.xiongzui.click()
         else:
             logger.error(f"无效的数据参数: {buweimingcheng}")
             raise ValueError(f"无效的部位参数: {buweimingcheng}")  # 抛出异常

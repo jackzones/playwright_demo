@@ -126,22 +126,3 @@ class TestAddReportWanTuiBian:
         with allure.step("开始断言"):
             assert expect_top in info
             assert expect_btm == info_btm
-
-    # @allure.story("报告添加-必填规则变化")
-    # @allure.title("添加成功测试-{fangshe_bianhao}-{buweimingcheng}-{leibie}-{xibuwei}-{louzhen_text}-{yingxiangxue_biaoxian_text}-{yinxiang_text}")
-    # @pytest.mark.parametrize("fangshe_bianhao, buweimingcheng, leibie, xibuwei, louzhen_text, yingxiangxue_biaoxian_text, yinxiang_text", new_report_bi_tian_title3)
-    # # 多参数的参数化，这样写的话参数可以直接使用，但在parametrize与测试函数的形参中需要列出所有的参数，并且参数的顺序必须一致
-    # def test_add_report_bi_tian_title3(self, fangshe_bianhao, buweimingcheng, leibie, xibuwei, louzhen_text, yingxiangxue_biaoxian_text, yinxiang_text, login_and_navigate_to_jiegouhua):
-    #     page = login_and_navigate_to_jiegouhua
-    #     page.add_simple_base_info(fangshe_bianhao, buweimingcheng, leibie, xibuwei)
-    #     page.page_tijiao_report_without_bitian()
-    #     with allure.step("查看漏诊提示"):
-    #         info_louzhen = page.page_get_form_info_louzhen()
-    #     with allure.step("必填确认"):
-    #         assert louzhen_text in info_louzhen
-    #         page.page_bi_tian_assure.click()
-    #     with allure.step("开始断言"):
-    #         info_yinxiang = page.page_get_form_info_content()
-    #         info_yingxiangxue_biaoxian = page.page_get_form_info_impression_text()
-    #         page.assert_str_equal(info_yingxiangxue_biaoxian, yingxiangxue_biaoxian_text)  # 修改为使用新方法
-    #         assert yinxiang_text == info_yinxiang
