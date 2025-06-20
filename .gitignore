@@ -694,3 +694,6 @@ videos/
 screenshots/
 /screenshots
 *.png
+# 忽略screenshots目录下的png文件
+screenshots/*.png
+/screenshots/
