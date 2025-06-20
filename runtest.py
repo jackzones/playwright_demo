@@ -12,8 +12,8 @@ def run():
     # pytest.main(['testcase/web/test_login/test_jiegouhuarreport_jing_zui_tui_bian.py', '-m', 'not old_feature', '--alluredir=%s' % cm.dir_report_json])
     # pytest.main(['testcase/web/test_login/', '-m', 'not old_feature', '--alluredir=%s' % cm.dir_report_json, '--reruns=1', '--reruns-delay=2'])
     pytest.main([
-        'testcases/test_jian_tui_bian.py',
-        '-m', 'debug',
+        'testcases/',
+        # '-m', 'titles',
         # '--lf',
         '--alluredir', cm.dir_report_json  # 分开作为两个列表元素
     ])

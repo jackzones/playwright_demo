@@ -41,7 +41,8 @@ class TestAddReportJianTuiBian:
         with allure.step("开始断言"):
             assert expect in info
 
-    @allure.story("报告添加-印象标题-左/右喙突下撞击综合征，左/右肩峰下撞击综合征")
+    @pytest.mark.titles
+    @allure.story("报告添加-多印象标题-左/右喙突下撞击综合征，左/右肩峰下撞击综合征")
     @allure.title("添加成功测试-{fangshe_bianhao}-{buweimingcheng}-{leibie}-{xibuwei}-{suntree1}-{tree1}-{data1}-{tree2}-{suntree2}-{data2}-{suntree3}-{tree3}-{data3}-{tree4}-{suntree4}-{data4}-{expect}")
     @pytest.mark.parametrize("fangshe_bianhao, buweimingcheng, leibie, xibuwei, suntree1, tree1, data1, tree2, suntree2, data2, suntree3, tree3, data3, tree4, suntree4, data4, expect", new_report_title_jian_3)
     # 多参数的参数化，这样写的话参数可以直接使用，但在parametrize与测试函数的形参中需要列出所有的参数，并且参数的顺序必须一致
@@ -53,7 +54,6 @@ class TestAddReportJianTuiBian:
         with allure.step("开始断言"):
             assert expect in info
 
-    @pytest.mark.debug
     @allure.story("报告添加-必填规则变化")
     @allure.title("添加成功测试-{fangshe_bianhao}-{buweimingcheng}-{leibie}-{xibuwei}")
     @pytest.mark.parametrize("fangshe_bianhao, buweimingcheng, leibie, xibuwei, louzhen_text, yingxiangxue_biaoxian_text, yinxiang_text", new_report_bi_tian_title3)

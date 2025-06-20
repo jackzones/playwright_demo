@@ -5,6 +5,7 @@
 
 * runtest 中配置运行参数
 * 运行 runtest
+* https 调试：`playwright open --ignore-https-errors --viewport-size=1920,1080 https://192.168.1.104:9104/`
 
 == 项目结构
 
@@ -19,3 +20,4 @@ pages下，`add_report_base_page.py` 是结构化报告页面的基类，`add_re
 勾选checkbox，不能复用selenium的xpath定位，使用plaawright的录制定位方式如下：`self.data_guzhi_zengsheng = self.page.get_by_role("row", name="骨质增生 骨质增生，骨髓未见明显异常信号影").locator("span").nth(1)`
 
 然后data设置不同的值，勾选不同的数据。
+

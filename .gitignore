@@ -692,3 +692,5 @@ allure-results/
 report/
 videos/
 screenshots/
+/screenshots
+*.png

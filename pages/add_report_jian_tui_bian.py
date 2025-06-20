@@ -2,7 +2,7 @@ from playwright.sync_api import Page
 from pages.add_report_base_page import AddReportBasePage
 import allure
 from utils.log import logger
-import time
+from time import sleep
 
 class AddReportJianTuiBian(AddReportBasePage):
     def __init__(self, page: Page):
@@ -45,6 +45,7 @@ class AddReportJianTuiBian(AddReportBasePage):
 
     # 脂肪间隙数据选择
     def page_zhifang_jianxi_select_xiazai(self, suntree):
+        sleep(1)
         if suntree == "肩峰下脂肪间隙":
             with allure.step("点击脂肪间隙-肩峰下脂肪间隙"):
                 logger.info(f"点击脂肪间隙-肩峰下脂肪间隙")

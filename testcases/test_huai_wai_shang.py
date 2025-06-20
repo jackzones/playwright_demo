@@ -42,8 +42,8 @@ class TestAddReportHuaiWaiShang:
         with allure.step("开始断言"):
             assert expect in info
 
-
-    @allure.story("报告添加-印象标题-副舟骨综合征、距后三角骨综合征")
+    @pytest.mark.titles
+    @allure.story("报告添加-外伤合并退变-多印象标题-副舟骨综合征、距后三角骨综合征")
     @allure.title("添加成功测试-{fangshe_bianhao}-{buweimingcheng}-{leibie}-{xibuwei}-{tree1}-{tree2}-{tree3}-{tree4}-{expect}")
     @pytest.mark.parametrize("fangshe_bianhao, buweimingcheng, leibie, xibuwei, tree1, tree2, tree3, tree4, expect", new_report_title_huai_wai_shang_3)
     # 多参数的参数化，这样写的话参数可以直接使用，但在parametrize与测试函数的形参中需要列出所有的参数，并且参数的顺序必须一致
@@ -66,3 +66,15 @@ class TestAddReportHuaiWaiShang:
             info = page.page_get_form_info_content()
         with allure.step("开始断言"):
             assert expect not in info
+
+    # @allure.story("报告添加-印象标题-副舟骨综合征、距后三角骨综合征")
+    # @allure.title("添加成功测试-{fangshe_bianhao}-{buweimingcheng}-{leibie}-{xibuwei}-{tree1}-{tree2}-{tree3}-{tree4}-{expect}")
+    # @pytest.mark.parametrize("fangshe_bianhao, buweimingcheng, leibie, xibuwei, tree1, tree2, tree3, tree4, expect", new_report_title_huai_wai_shang_5)
+    # # 多参数的参数化，这样写的话参数可以直接使用，但在parametrize与测试函数的形参中需要列出所有的参数，并且参数的顺序必须一致
+    # def test_add_report_huai_wai_shang5(self, fangshe_bianhao, buweimingcheng, leibie, xibuwei, tree1, tree2, tree3, tree4, expect, login_and_navigate_to_jiegouhua):
+    #     page = login_and_navigate_to_jiegouhua
+    #     page.page_add_report_huai_waishang_title2(fangshe_bianhao, buweimingcheng, leibie, xibuwei, tree1, tree2, tree3, tree4)
+    #     with allure.step("查看报告结果"):
+    #         info = page.page_get_form_info_content()
+    #     with allure.step("开始断言"):
+    #         assert expect in info

@@ -25,14 +25,14 @@ def page(pytestconfig):
     with sync_playwright() as p:
         logger.info("page session fixture starting....")
         browser = p.chromium.launch(headless=True, timeout=5000)
-        context = browser.new_context(viewport={"width": 1920, "height": 1080}, record_video_dir="videos/")
+        context = browser.new_context(viewport={"width": 1920, "height": 1080}, record_video_dir="videos/",ignore_https_errors=True)
         page = context.new_page()
         # 设置默认超时时间为4秒（3000毫秒）
         page.set_default_timeout(3000)
         context.tracing.start(screenshots=True, snapshots=True, sources=True)
         yield page
         logger.info("page session fixture closing.......")
-        base_url = pytestconfig.getoption("base_url") or "http://192.168.1.70:9104"
+        base_url = pytestconfig.getoption("base_url") or "https://192.168.1.104:9104"
         domain = extract_domain(base_url).replace(".", "_")
         logger.info("stop tracing...")
         context.tracing.stop(path=f"{domain}_trace.zip")
@@ -49,7 +49,8 @@ def auth_page():
         context = browser.new_context(
             storage_state=os.path.join(base_path, "auth.json"),
             viewport={"width": 1920, "height": 1080},
-            record_video_dir = "videos/"
+            record_video_dir = "videos/",
+            ignore_https_errors=True
         )
         page = context.new_page()
         # 设置默认超时时间为4秒（3000毫秒）
@@ -65,7 +66,7 @@ def _login(page, pytestconfig, is_goto_project_detail=False):
     if base_url := pytestconfig.getoption("base_url"):
         logger.info(f"命令行传入参数，base_url={base_url}")
     else:
-        default_url = "http://192.168.1.70:9104"
+        default_url = "https://192.168.1.104:9104"
         logger.warning(f"没有传入base-url，会使用默认base_url = {default_url}，如果需要使用--base-url=xxx修改")
         base_url = default_url
 
@@ -139,7 +140,7 @@ def pytest_runtest_makereport(item, call):
 #     parser.addoption(
 #         "--host",
 #         action="store",
-#         default="http://192.168.1.104:9104",
+#         default="https://192.168.1.104:9104",
 #         help="base URL for login page",
 #     )
 #     logger.info("添加命令行参数 host")

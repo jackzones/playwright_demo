@@ -16,10 +16,9 @@ def set_report_env_on_results():
         'PythonVersion': platform.python_version(),
         'PytestVersion': pytest.__version__,
         'Platform': platform.platform(),
-        'selenium': '3.141.0',
-        'Browser': 'Google Chrome for Testing',
-        'BrowserVersion': "132.0.6793.2",
-        'DiverVersion': "132.0.6793.2"
+        'Playwright': '0.7.0',
+        'Browser': 'Google Chrome',
+        'BrowserVersion': "133.0.6943.16"
     }
 
     allure_env_file = os.path.join(cm.dir_report_json, 'environment.properties')

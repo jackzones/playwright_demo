@@ -22,12 +22,12 @@ class AddReportBasePage:
         self.tuibian_waishang = self.page.get_by_text("外伤合并退变")
         self.zuoxi = self.page.get_by_text("左膝")
         self.youxi = self.page.get_by_text("右膝")
-        self.zuojian = self.page.get_by_text("左肩")
-        self.youjian = self.page.get_by_text("右肩")
-        self.zuohuai = self.page.get_by_text("左踝")
-        self.youhuai = self.page.get_by_text("右踝")
-        self.zuowan = self.page.get_by_text("左腕")
-        self.youwan = self.page.get_by_text("右腕")
+        self.zuojian = self.page.locator("label").filter(has_text="左肩").locator("span").nth(1)
+        self.youjian = self.page.locator("label").filter(has_text="右肩").locator("span").nth(1)
+        self.zuohuai = self.page.locator("label").filter(has_text="左踝").locator("span").nth(1)
+        self.youhuai = self.page.locator("label").filter(has_text="右踝").locator("span").nth(1)
+        self.zuowan = self.page.locator("label").filter(has_text="左腕").locator("span").nth(1)
+        self.youwan = self.page.locator("label").filter(has_text="右腕").locator("span").nth(1)
         self.jingzui = self.page.get_by_text("颈椎")
         self.xiongzui = self.page.get_by_text("胸椎")
 
@@ -49,7 +49,9 @@ class AddReportBasePage:
         self.impression = self.page.locator("//div[@class='impression-text impressS']")
         ##上、下标题
         self.top_title = self.page.locator('div.impression-text.impressS span.rule_title').first
-        self.bottom_title = self.page.locator('div.impression-text.impressS span.rule_title').nth(1)
+        self.second_title = self.page.locator('div.impression-text.impressS span.rule_title').nth(1)
+        self.third_title = self.page.locator('div.impression-text.impressS span.rule_title').nth(2)
+
 
     def buweimingcheng_select(self, buweimingcheng: str):
         self.buweimingcheng.click()
@@ -133,8 +135,13 @@ class AddReportBasePage:
 
     def page_get_form_info_rule_title_bottom(self):
         """获取印象信息-下标题"""
-        self.bottom_title.wait_for(state="visible")
-        return self.bottom_title.inner_text()
+        self.second_title.wait_for(state="visible")
+        return self.second_title.inner_text()
+
+    def page_get_form_info_rule_title_third(self):
+        """获取印象信息-下标题"""
+        self.third_title.wait_for(state="visible")
+        return self.third_title.inner_text()
 
     def page_tijiao_report(self):
         with allure.step("点击提交报告"):
@@ -165,5 +172,7 @@ class AddReportBasePage:
                                  actual.splitlines(keepends=True))
             diff_text = ''.join(diff)
             logger.error(f"字符串不匹配，差异如下:\n{diff_text}")
-            assert False, f"字符串不匹配，差异如下:\n{diff_text}"
+            logger.error(f"字符串不匹配，实际值如下:\n{actual}")
+            logger.error(f"字符串不匹配，期望值如下:\n{expected}")
+            assert False, f"字符串不匹配，差异如下:\n{diff_text} \n 实际值：{actual} \n 期望值：{expected}"
         return True
