@@ -12,6 +12,7 @@ def set_report_env_on_results():
     """
     # 需要写入的环境信息，根据实际工程填写
     allure_env = {
+        'TestcaseVersion': '2.0',
         'OperatingEnvironment': 'mcx DC',
         'PythonVersion': platform.python_version(),
         'PytestVersion': pytest.__version__,

@@ -21,3 +21,7 @@ pages下，`add_report_base_page.py` 是结构化报告页面的基类，`add_re
 
 然后data设置不同的值，勾选不同的数据。
 
+运行报告：`allure open ./report --host 192.168.1.18 --port 8080`
+
+headless：`headless=True`
+

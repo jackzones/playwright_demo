@@ -31,25 +31,25 @@ class AddReportHuaiWaiShang(AddReportBasePage):
             with allure.step("点击舟骨-勾选骨髓水肿"):
                 logger.info(f"点击舟骨-勾选骨髓水肿")
                 self.tree_gusui_suizhong_zhougu.click()
-                sleep(0.03)
+                sleep(0.1)
                 self.gusui_suizhong_checkbox.click()
         elif tree == "副舟骨":
             with allure.step("点击副舟骨-勾选骨髓水肿"):
                 logger.info(f"点击副舟骨-勾选骨髓水肿")
                 self.tree_gusui_suizhong_fuzhougu.click()
-                sleep(0.03)
+                sleep(0.1)
                 self.gusui_suizhong_checkbox.click()
         elif tree == "距骨":
             with allure.step("点击距骨-勾选骨髓水肿"):
                 logger.info(f"点击距骨-勾选骨髓水肿")
                 self.tree_gusui_suizhong_jugu.click()
-                sleep(0.03)
+                sleep(0.1)
                 self.gusui_suizhong_checkbox.click()
         elif tree == "距后三角骨":
             with allure.step("点击距后三角骨-勾选骨髓水肿"):
                 logger.info(f"点击距后三角骨-勾选骨髓水肿")
                 self.tree_gusui_suizhong_juhou_sanjiaogu.click()
-                sleep(0.03)
+                sleep(0.1)
                 self.gusui_suizhong_checkbox.click()
         else:
             logger.error(f"无效的部位参数: {tree}")

@@ -32,7 +32,7 @@ def page(pytestconfig):
         context.tracing.start(screenshots=True, snapshots=True, sources=True)
         yield page
         logger.info("page session fixture closing.......")
-        base_url = pytestconfig.getoption("base_url") or "https://192.168.1.104:9104"
+        base_url = pytestconfig.getoption("base_url") or "https://192.168.1.70:9104"
         domain = extract_domain(base_url).replace(".", "_")
         logger.info("stop tracing...")
         context.tracing.stop(path=f"{domain}_trace.zip")
@@ -66,7 +66,7 @@ def _login(page, pytestconfig, is_goto_project_detail=False):
     if base_url := pytestconfig.getoption("base_url"):
         logger.info(f"命令行传入参数，base_url={base_url}")
     else:
-        default_url = "https://192.168.1.104:9104"
+        default_url = "https://192.168.1.70:9104"
         logger.warning(f"没有传入base-url，会使用默认base_url = {default_url}，如果需要使用--base-url=xxx修改")
         base_url = default_url
 
@@ -140,7 +140,7 @@ def pytest_runtest_makereport(item, call):
 #     parser.addoption(
 #         "--host",
 #         action="store",
-#         default="https://192.168.1.104:9104",
+#         default="https://192.168.1.70:9104",
 #         help="base URL for login page",
 #     )
 #     logger.info("添加命令行参数 host")

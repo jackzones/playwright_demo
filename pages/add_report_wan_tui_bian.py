@@ -61,7 +61,7 @@ class AddReportWanTuiBian(AddReportBasePage):
             raise ValueError(f"无效的数据参数: {data}")
 
     def page_guanjie_duiwei_data_select(self, data):
-        sleep(3)
+        sleep(5)
         if data == "尺骨变异征阳性":
             with allure.step("勾选尺骨变异征阳性"):
                 logger.info(f"勾选尺骨变异征阳性")
@@ -106,6 +106,7 @@ class AddReportWanTuiBian(AddReportBasePage):
             with allure.step("点击下尺桡关节"):
                 logger.info(f"点击下尺桡关节")
                 # self.tree_guanjie_duiwei_xiaci.click()
+                sleep(0.1)
                 self.tree_guanjie_duiwei_xiaci.click()
                 self.page_guanjie_duiwei_data_select(data)
         else:
