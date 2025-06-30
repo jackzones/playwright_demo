@@ -2051,3 +2051,17 @@ new_report_title_wan_tuibian_10:
     expect_btm1: 钩月撞击综合征
     expect_btm2: 尺骨茎突撞击综合征
     expect_btm3: 尺侧撞击综合征
+
+new_report_bi_tian_1:
+  - case1: 部位名称和类别为空
+    fangshe_bianhao: bi_tian_1
+    expect_text: 请选择部位名称
+
+new_report_bi_tian_2:
+  - case1: 放射编号为空
+    expect_text: 请填写放射编号
+
+new_report_bi_tian_3:
+  - case1: 类别为空
+    fangshe_bianhao: bi_tian_3
+    expect_text: 请选择类别

@@ -57,3 +57,7 @@ new_report_title_wan_tuibian_7 = yaml_para.read_yaml('new_report_title_wan_tuibi
 new_report_title_wan_tuibian_8 = yaml_para.read_yaml('new_report_title_wan_tuibian_8')
 new_report_title_wan_tuibian_9 = yaml_para.read_yaml('new_report_title_wan_tuibian_9')
 new_report_title_wan_tuibian_10 = yaml_para.read_yaml('new_report_title_wan_tuibian_10')
+
+new_report_bi_tian_1 = yaml_para.read_yaml('new_report_bi_tian_1')
+new_report_bi_tian_2 = yaml_para.read_yaml('new_report_bi_tian_2')
+new_report_bi_tian_3 = yaml_para.read_yaml('new_report_bi_tian_3')

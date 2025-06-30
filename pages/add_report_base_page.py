@@ -52,6 +52,8 @@ class AddReportBasePage:
         self.second_title = self.page.locator('div.impression-text.impressS span.rule_title').nth(1)
         self.third_title = self.page.locator('div.impression-text.impressS span.rule_title').nth(2)
 
+        self.pop_tips = self.page.locator('p.el-message__content').first
+
 
     def buweimingcheng_select(self, buweimingcheng: str):
         self.buweimingcheng.click()
@@ -109,8 +111,6 @@ class AddReportBasePage:
             logger.error(f"无效的数据参数: {xibuwei}")
             raise ValueError(f"无效的部位参数: {xibuwei}")
 
-
-
     @allure.step("添加简单基本信息")
     def add_simple_base_info(self, fsbh: str, buweimingcheng: str, leibie: str, xibuwei=None):
         logger.info(f"添加简单基本信息：放射编号-{fsbh}，部位名称-{buweimingcheng}，类别-{leibie}，部位-{xibuwei}")
@@ -120,6 +120,17 @@ class AddReportBasePage:
         if xibuwei is not None:
             self.xi_select(xibuwei)
             self.xi_select_assure.click()
+
+    @allure.step("只添加放射编号")
+    def add_simple_base_info_only_fsbh(self, fsbh: str):
+        logger.info(f"添加简单基本信息：放射编号-{fsbh}")
+        self.fsbh_input.fill(fsbh)
+
+    @allure.step("只添加放射编号和部位-髋")
+    def add_simple_base_info_without_leibie(self, fsbh: str):
+        logger.info(f"添加简单基本信息：放射编号-{fsbh}, 部位名称-髋")
+        self.fsbh_input.fill(fsbh)
+        self.buweimingcheng_select('髋')
 
     def page_get_form_info_content(self):
         """获取印象信息文本内容"""
@@ -176,3 +187,8 @@ class AddReportBasePage:
             logger.error(f"字符串不匹配，期望值如下:\n{expected}")
             assert False, f"字符串不匹配，差异如下:\n{diff_text} \n 实际值：{actual} \n 期望值：{expected}"
         return True
+
+    def page_pop_tips(self):
+        """获取第一个message"""
+        self.pop_tips.wait_for(state="visible")
+        return self.pop_tips.inner_text()
