@@ -1,4 +1,6 @@
+from time import sleep
 import allure
+from playwright.sync_api import expect
 from utils.log import logger
 from playwright.sync_api import Page
 import re
@@ -47,6 +49,10 @@ class AddReportBasePage:
         #报告内容
         self.yingxiangxue_bianxian = self.page.locator("//div[@class='impression-text']")
         self.impression = self.page.locator("//div[@class='impression-text impressS']")
+        self.yingxiangxue_bianxian_copy_button = self.page.locator('button.copy_btn').first
+        self.yinxiang_copy_button = self.page.locator('button.copy_btn').nth(1)
+
+
         ##上、下标题
         self.top_title = self.page.locator('div.impression-text.impressS span.rule_title').first
         self.second_title = self.page.locator('div.impression-text.impressS span.rule_title').nth(1)
@@ -192,3 +198,28 @@ class AddReportBasePage:
         """获取第一个message"""
         self.pop_tips.wait_for(state="visible")
         return self.pop_tips.inner_text()
+
+    def get_clipboard_text(self):
+        """获取剪贴板文本"""
+        return self.page.evaluate("() => navigator.clipboard.readText()")
+
+
+    def get_yingxiangxue_biaoxian_clipboard_text(self):
+        """获取影像表现-复制按钮"""
+        with allure.step("点击复制按钮-获取影像学表现"):
+            logger.info(f"点击复制按钮-获取影像学表现")
+            self.yingxiangxue_bianxian_copy_button.wait_for(state="visible")
+            self.page.context.grant_permissions(['clipboard-read', 'clipboard-write']) #复制权限
+            self.yingxiangxue_bianxian_copy_button.click()
+            print(repr(self.get_clipboard_text()))
+            return self.get_clipboard_text()
+
+
+    def get_yinxiang_clipboard_text(self):
+        """获取影像表现-复制按钮"""
+        with allure.step("点击复制按钮-获取印象"):
+            logger.info(f"点击复制按钮-获取印象")
+            self.yinxiang_copy_button.wait_for(state="visible")
+            self.page.context.grant_permissions(['clipboard-read', 'clipboard-write'])  # 复制权限
+            self.yinxiang_copy_button.click()
+            return self.get_clipboard_text()

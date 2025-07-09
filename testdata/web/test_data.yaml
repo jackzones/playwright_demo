@@ -700,6 +700,26 @@ new_report_title_kuan_6:
     suntree: 股骨头
     expect: "左髋不除外股骨-髋臼撞击综合征（FAI），请结合临床体征，必要时进一步骨盆相关X线及单髋MRI详查"
 
+new_report_title_kuan_9:
+  - case1: 印象中标题规则-双髋-退行性改变-软骨软化II级
+    fangshe_bianhao: kuan9-1
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 双髋
+    suntree: 双髋关节
+    ban_suizhong: No
+    jishu: '2'
+    expect: '<'
+  - case2: 印象中标题规则-双髋-退行性改变-软骨软化III级
+    fangshe_bianhao: kuan9-1
+    buweimingcheng: 髋
+    leibie: 退变
+    treename: 双髋
+    suntree: 双髋关节
+    ban_suizhong: No
+    jishu: '3'
+    expect: '>'
+
 new_report_bi_tian_title1:
   - case1: 髋退变，直接提交报告
     fangshe_bianhao: bi_tian_kuan_tuibian

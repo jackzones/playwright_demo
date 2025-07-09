@@ -13,10 +13,10 @@ def run():
     # pytest.main(['testcase/web/test_login/', '-m', 'not old_feature', '--alluredir=%s' % cm.dir_report_json, '--reruns=1', '--reruns-delay=2'])
     pytest.main([
         'testcases/',
-        # '-m', 'titles',
+        # '-m', 'copy',
         # '--lf',
-        '--reruns', '2',
-        '--reruns-delay', '1',
+        # '--reruns', '2',
+        # '--reruns-delay', '1',
         '--alluredir', cm.dir_report_json  # 分开作为两个列表元素
     ])
     # pytest.main(['testcase/web/test_login/', '-m', 'smoke','--alluredir=%s' % cm.dir_report_json])

@@ -5,7 +5,7 @@ import allure
 import pytest
 from playwright.sync_api import expect
 from pages.add_report_kuan_tui_bian import AddReportKuanTuiBian
-from common.read_yaml import new_report_title_kuan_1, new_report_title_kuan_2, new_report_title_kuan_3, new_report_title_kuan_4, new_report_title_kuan_5, new_report_title_kuan_6, new_report_bi_tian_title1, new_report_title_kuan_7, new_report_title_kuan_8
+from common.read_yaml import new_report_title_kuan_1, new_report_title_kuan_2, new_report_title_kuan_3, new_report_title_kuan_4, new_report_title_kuan_5, new_report_title_kuan_6, new_report_bi_tian_title1, new_report_title_kuan_7, new_report_title_kuan_8, new_report_title_kuan_9
 
 @allure.feature("髋关节退变")
 class TestAddReportKuanTuiBian:
@@ -151,3 +151,15 @@ class TestAddReportKuanTuiBian:
             info_yingxiangxue_biaoxian = page.page_get_form_info_impression_text()
             assert yinxiang_text == info_yinxiang
             page.assert_str_equal(info_yingxiangxue_biaoxian, yingxiangxue_biaoxian_text)  # 修改为使用新方法
+
+    @allure.story("报告添加-复制功能-转义字符<和>")
+    @allure.title("添加成功测试-{fangshe_bianhao}-{buweimingcheng}-{leibie}-{treename}-{suntree}-{ban_suizhong}-{jishu}-{expect}")
+    @pytest.mark.parametrize("fangshe_bianhao, buweimingcheng, leibie, treename, suntree, ban_suizhong, jishu, expect", new_report_title_kuan_9)
+    # 多参数的参数化，这样写的话参数可以直接使用，但在parametrize与测试函数的形参中需要列出所有的参数，并且参数的顺序必须一致
+    def test_add_report_kuan6(self, fangshe_bianhao, buweimingcheng, leibie, treename, suntree, ban_suizhong, jishu, expect, login_and_navigate_to_jiegouhua):
+        page = login_and_navigate_to_jiegouhua
+        page.page_add_report_kuan_tuixingxing_gaibian_6(fangshe_bianhao, buweimingcheng, leibie, treename, suntree, ban_suizhong, jishu)
+        info = page.get_yingxiangxue_biaoxian_clipboard_text()
+        with allure.step("开始断言"):
+            assert expect in info
+            assert "&" not in info

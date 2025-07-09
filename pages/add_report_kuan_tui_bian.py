@@ -331,3 +331,8 @@ class AddReportKuanTuiBian(AddReportBasePage):
         self.add_simple_base_info(fangshe_bianhao, buweimingcheng, leibie)
         self.page_click_gugu_kuanjiu_zhuangji_zonghezheng1(treename, suntree)
         self.page_tijiao_report()
+
+    def page_add_report_kuan_tuixingxing_gaibian_6(self, fangshe_bianhao, buweimingcheng, leibie, treename, suntree, ban_suizhong, jishu):
+        self.add_simple_base_info(fangshe_bianhao, buweimingcheng, leibie)
+        self.page_click_ruangu_num_ji(treename, suntree, ban_suizhong, jishu)
+        self.page_tijiao_report()
