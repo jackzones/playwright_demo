@@ -16,6 +16,8 @@ class AddReportBasePage:
         self.jian = self.page.get_by_role("option", name="肩")
         self.huai = self.page.get_by_role("option", name="踝")
         self.wan = self.page.get_by_role("option", name="腕")
+        self.buwei_lable = self.page.locator("ul.el-scrollbar__view.el-select-dropdown__list").nth(1)
+        self.leibie_lable = self.page.locator("ul.el-scrollbar__view.el-select-dropdown__list").nth(2)
         # self.leibie = self.page.locator("div").filter(has_text=re.compile(r"^类别请选择$")).locator("span")
         self.leibie = self.page.locator("div:nth-child(8) > .el-form-item__content > .el-select > .el-select__wrapper > .el-select__selection > div:nth-child(2)")
         self.tuibian = self.page.get_by_role("option", name="退变", exact=True)
@@ -132,11 +134,11 @@ class AddReportBasePage:
         logger.info(f"添加简单基本信息：放射编号-{fsbh}")
         self.fsbh_input.fill(fsbh)
 
-    @allure.step("只添加放射编号和部位-髋")
+    @allure.step("只添加放射编号和部位-颈椎")
     def add_simple_base_info_without_leibie(self, fsbh: str):
-        logger.info(f"添加简单基本信息：放射编号-{fsbh}, 部位名称-髋")
+        logger.info(f"添加简单基本信息：放射编号-{fsbh}, 部位名称-颈椎")
         self.fsbh_input.fill(fsbh)
-        self.buweimingcheng_select('髋')
+        self.buweimingcheng_select('颈椎')
 
     def page_get_form_info_content(self):
         """获取印象信息文本内容"""

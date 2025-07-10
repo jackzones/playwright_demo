@@ -2085,3 +2085,51 @@ new_report_bi_tian_3:
   - case1: 类别为空
     fangshe_bianhao: bi_tian_3
     expect_text: 请选择类别
+
+new_report_bi_tian_4:
+  - case1: 部位名称排序
+    zhanwei: bi_tian_4
+    expect_text: 颈椎胸椎腰椎肩腕髋膝踝
+
+new_report_bi_tian_5:
+  - case1: 部位名称排序
+    fangshe_bianhao: bi_tian_5
+    expect_text: 退变外伤外伤合并退变
+
+zhishiku_gailan_paixu1:
+  - case1: 排序：颈椎，胸椎，腰椎，肩，腕，髋，膝，踝，特殊情况除外，每个部位里是退变，外伤，外伤合并退变
+    card1: 全部
+    card2: 颈椎退变
+    card3: 颈椎外伤
+    card4: 胸椎外伤
+    card5: 腰椎退变
+    card6: 腰椎外伤
+    card7: 肩关节退变
+    card8: 肩关节外伤
+    card9: 腕关节退变
+    card10: 腕关节外伤
+    card11: 髋关节退变
+    card12: 股骨头坏死
+    card13: 膝关节退变
+    card14: 膝关节外伤
+    card15: 踝关节退变
+    card16: 踝关节外伤
+
+zhishiku_jiansuo_type1:
+  - case1: 切换MRI，点击搜索
+    type: MRI
+    num: 5191
+  - case2: 切换CT，点击搜索
+    type: CT
+    num: 0
+  - case3: 切换DR，点击搜索
+    type: DR
+    num: 0
+
+zhishiku_jiansuo_search1:
+  - case1: 切换MRI，搜索印象信息如软骨软化
+    text: 软骨软化
+    num: 314
+  - case2: 切换MRI，搜索描述信息如断端分离
+    text: 断端分离
+    num: 36

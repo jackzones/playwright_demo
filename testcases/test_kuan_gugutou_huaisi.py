@@ -5,7 +5,7 @@ import allure
 import pytest
 from playwright.sync_api import expect
 from pages.add_report_kuan_gugutou_huaisi import AddReportKuanGuGuTouHuaiSi
-from common.read_yaml import new_report_bi_tian_title2, new_report_bi_tian_1, new_report_bi_tian_2, new_report_bi_tian_3
+from common.read_yaml import new_report_bi_tian_title2, new_report_bi_tian_1, new_report_bi_tian_2, new_report_bi_tian_3, new_report_bi_tian_4, new_report_bi_tian_5
 
 @allure.feature("髋股骨头坏死")
 class TestAddReportKuanGuGuTouHuaiSi:
@@ -71,3 +71,22 @@ class TestAddReportKuanGuGuTouHuaiSi:
         with allure.step("开始断言"):
             msg = page.page_pop_tips()
             assert expect_text[0] == msg if isinstance(expect_text, tuple) else expect_text == msg
+
+    @allure.story("报告添加-基本信息字段格式校验-部位名称排序")
+    @allure.title("添加成功测试")
+    @pytest.mark.parametrize("zhanwei, expect_text", new_report_bi_tian_4)
+    # 多参数的参数化，这样写的话参数可以直接使用，但在parametrize与测试函数的形参中需要列出所有的参数，并且参数的顺序必须一致
+    def test_add_report_bi_tian_4(self, zhanwei, expect_text, login_and_navigate_to_jiegouhua):
+        page = login_and_navigate_to_jiegouhua
+        with allure.step("开始断言"):
+            expect(page.buwei_lable).to_have_text([expect_text])
+
+    @allure.story("报告添加-基本信息字段格式校验-颈椎-类别排序")
+    @allure.title("添加成功测试")
+    @pytest.mark.parametrize("fangshe_bianhao, expect_text", new_report_bi_tian_5)
+    # 多参数的参数化，这样写的话参数可以直接使用，但在parametrize与测试函数的形参中需要列出所有的参数，并且参数的顺序必须一致
+    def test_add_report_bi_tian_5(self, fangshe_bianhao, expect_text, login_and_navigate_to_jiegouhua):
+        page = login_and_navigate_to_jiegouhua
+        page.add_simple_base_info_without_leibie(fangshe_bianhao)
+        with allure.step("开始断言"):
+            expect(page.leibie_lable).to_have_text([expect_text])

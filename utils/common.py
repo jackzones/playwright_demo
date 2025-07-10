@@ -7,6 +7,7 @@ import csv
 from pathlib import Path
 import allure
 import json
+import re
 
 
 def assert_strings_equal(self, actual, expected):
@@ -20,3 +21,16 @@ def assert_strings_equal(self, actual, expected):
     return True
 
 
+def extract_num_from_str(text: str) -> int:
+    """从类似'共 5191 条'的字符串中提取数字部分
+    Args:
+        text: 包含数字的字符串，如'共 5191 条'
+
+    Returns:
+        提取出的数字，如5191
+    """
+    print(text)
+    match = re.search(r'\d+', text)
+    if match:
+        return int(match.group())
+    return 0

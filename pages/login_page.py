@@ -9,7 +9,7 @@
 import allure
 from utils.log import logger
 from playwright.sync_api import Page
-import time
+from time import sleep
 
 
 class LoginPage:
@@ -20,6 +20,18 @@ class LoginPage:
         self.username_input = self.page.get_by_role("textbox", name="* 账号")
         self.password_input = self.page.get_by_role("textbox", name="* 密码")
         self.submit_button = self.page.get_by_role("button", name="登录")
+
+        #后台管理，标签页
+        self.zhishiku_gailan_menu = self.page.get_by_role("menubar").get_by_role("link", name="知识库概览")
+        self.zhishiku_jiansuo_menu = self.page.get_by_role("link", name="知识库检索")
+
+        self.shuju_guanli_menu = self.page.get_by_role("menuitem", name="数据管理").locator("div")
+        self.report_history_menu = self.page.get_by_role("link", name="报告历史数据")
+
+        self.xitong_guanli_menu = self.page.get_by_role("menuitem", name="系统管理").locator("div")
+        self.user_menu = self.page.get_by_role("link", name="用户管理")
+        self.role_menu = self.page.get_by_role("link", name="角色管理")
+
 
     # 定义操作
     @allure.step("打开登录页面，填写账号密码")
@@ -37,9 +49,28 @@ class LoginPage:
     @allure.step("切换结构化报告页")
     def navigt_jiegouhua(self):
         logger.info("切换结构化报告页")
-        # self.page.goto(self.base_url + "/front/report-list")
-        # time.sleep(60)
         self.page.get_by_role("button", name="结构化报告").click()
         return self.page
 
 
+    @allure.step("切换后台管理页")
+    def navigt_houtai(self):
+        logger.info("切换后台管理页")
+        self.page.get_by_text("后台管理").click()
+        return self.page
+
+    @allure.step("切换知识库概览页")
+    def navigt_zhishiku_gailan(self):
+        logger.info("切换知识库概览页")
+        self.page.get_by_text("后台管理").click()
+        sleep(0.5)
+        self.zhishiku_gailan_menu.click()
+        return self.page
+
+    @allure.step("切换知识库检索页")
+    def navigt_zhishiku_jiansuo(self):
+        logger.info("切换知识库检索页")
+        self.page.get_by_text("后台管理").click()
+        sleep(0.5)
+        self.zhishiku_jiansuo_menu.click()
+        return self.page
