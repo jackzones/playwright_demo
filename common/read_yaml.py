@@ -68,3 +68,5 @@ new_report_bi_tian_5 = yaml_para.read_yaml('new_report_bi_tian_5')
 zhishiku_gailan_paixu1 = yaml_para.read_yaml('zhishiku_gailan_paixu1')
 zhishiku_jiansuo_type1 = yaml_para.read_yaml('zhishiku_jiansuo_type1')
 zhishiku_jiansuo_search1 = yaml_para.read_yaml('zhishiku_jiansuo_search1')
+
+user_add1 = yaml_para.read_yaml('user_add1')

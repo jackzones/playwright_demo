@@ -2133,3 +2133,12 @@ zhishiku_jiansuo_search1:
   - case2: 切换MRI，搜索描述信息如断端分离
     text: 断端分离
     num: 36
+
+user_add1:
+  - case1: 添加用户信息
+    username: 软骨
+    name: ruangu
+    phone: '17702242535'
+    email: 1@qq.com
+
+

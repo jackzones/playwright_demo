@@ -74,3 +74,13 @@ class LoginPage:
         sleep(0.5)
         self.zhishiku_jiansuo_menu.click()
         return self.page
+
+    @allure.step("切换用户管理页")
+    def navigt_user(self):
+        logger.info("切换用户管理页")
+        self.page.get_by_text("后台管理").click()
+        sleep(0.5)
+        self.xitong_guanli_menu.click()
+        self.user_menu.click()
+        return self.page
+
