@@ -2118,7 +2118,7 @@ zhishiku_gailan_paixu1:
 zhishiku_jiansuo_type1:
   - case1: 切换MRI，点击搜索
     type: MRI
-    num: 5198
+    num: 5200
   - case2: 切换CT，点击搜索
     type: CT
     num: 0
