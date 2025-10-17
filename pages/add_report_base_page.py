@@ -49,8 +49,9 @@ class AddReportBasePage:
         self.title_ok_btn = self.page.get_by_role("button", name="确认")
 
         #报告内容
-        self.yingxiangxue_bianxian = self.page.locator("//div[@class='impression-text']")
-        self.impression = self.page.locator("//div[@class='impression-text impressS']")
+        self.yingxiangxue_bianxian = self.page.locator("//div[@class='impression-text no_outline']")
+        # self.impression = self.page.locator("//div[@class='impression-text impressS no_outline']") 精确类名匹配，增加类 无法定位
+        self.impression = self.page.locator("//div[contains(@class, 'impression-text') and contains(@class, 'impressS')]")
         self.yingxiangxue_bianxian_copy_button = self.page.locator('button.copy_btn').first
         self.yinxiang_copy_button = self.page.locator('button.copy_btn').nth(1)
 
@@ -201,27 +202,179 @@ class AddReportBasePage:
         self.pop_tips.wait_for(state="visible")
         return self.pop_tips.inner_text()
 
-    def get_clipboard_text(self):
-        """获取剪贴板文本"""
-        return self.page.evaluate("() => navigator.clipboard.readText()")
+    # def get_clipboard_text(self):
+    #     """获取剪贴板文本"""
+    #     return self.page.evaluate("() => navigator.clipboard.readText()")
+    #
+    #
+    # def get_yingxiangxue_biaoxian_clipboard_text(self):
+    #     """获取影像表现-复制按钮"""
+    #     with allure.step("点击复制按钮-获取影像学表现"):
+    #         logger.info(f"点击复制按钮-获取影像学表现")
+    #         self.yingxiangxue_bianxian_copy_button.wait_for(state="visible")
+    #         self.page.context.grant_permissions(['clipboard-read', 'clipboard-write']) #复制权限
+    #         self.yingxiangxue_bianxian_copy_button.click()
+    #         print(repr(self.get_clipboard_text()))
+    #         return self.get_clipboard_text()
+    #
+    #
+    # def get_yinxiang_clipboard_text(self):
+    #     """获取影像表现-复制按钮"""
+    #     with allure.step("点击复制按钮-获取印象"):
+    #         logger.info(f"点击复制按钮-获取印象")
+    #         self.yinxiang_copy_button.wait_for(state="visible")
+    #         self.page.context.grant_permissions(['clipboard-read', 'clipboard-write'])  # 复制权限
+    #         self.yinxiang_copy_button.click()
+    #         return self.get_clipboard_text()
 
+    def get_clipboard_text(self):
+        """获取剪贴板文本，增加重试机制和更详细的日志"""
+        max_retries = 3
+        retry_delay = 0.3  # 300ms
+
+        for attempt in range(max_retries):
+            try:
+                # 使用同步方式调用异步代码，确保在Playwright中正确处理
+                result = self.page.evaluate("""
+                    function() {
+                        return new Promise((resolve) => {
+                            try {
+                                // 检查剪贴板API是否可用
+                                if (navigator.clipboard && typeof navigator.clipboard.readText === 'function') {
+                                    navigator.clipboard.readText()
+                                        .then(text => {
+                                            console.log('剪贴板内容(API方式):', text || '空');
+                                            resolve(text);
+                                        })
+                                        .catch(err => {
+                                            console.error('剪贴板API读取失败:', err);
+                                            // API失败时尝试降级方案
+                                            try {
+                                                const textArea = document.createElement('textarea');
+                                                textArea.style.position = 'fixed';
+                                                textArea.style.opacity = '0';
+                                                document.body.appendChild(textArea);
+                                                textArea.focus();
+                                                const success = document.execCommand('paste');
+                                                const text = textArea.value;
+                                                document.body.removeChild(textArea);
+                                                console.log('剪贴板内容(execCommand方式):', text || '空', '成功:', success);
+                                                resolve(text);
+                                            } catch (fallbackError) {
+                                                console.error('降级方案也失败:', fallbackError);
+                                                resolve('');
+                                            }
+                                        });
+                                } else {
+                                    // 直接使用降级方案
+                                    try {
+                                        const textArea = document.createElement('textarea');
+                                        textArea.style.position = 'fixed';
+                                        textArea.style.opacity = '0';
+                                        document.body.appendChild(textArea);
+                                        textArea.focus();
+                                        const success = document.execCommand('paste');
+                                        const text = textArea.value;
+                                        document.body.removeChild(textArea);
+                                        console.log('剪贴板内容(execCommand方式):', text || '空', '成功:', success);
+                                        resolve(text);
+                                    } catch (error) {
+                                        console.error('读取剪贴板失败:', error);
+                                        resolve('');
+                                    }
+                                }
+                            } catch (error) {
+                                console.error('读取剪贴板时发生异常:', error);
+                                resolve('');
+                            }
+                        });
+                    }
+                """)
+
+                if result:  # 如果获取到内容，直接返回
+                    logger.info(f"成功获取剪贴板内容，长度: {len(result)}")
+                    return result
+
+                # 如果为空，记录日志并在最后一次尝试前继续重试
+                if attempt < max_retries - 1:
+                    logger.warning(f"剪贴板内容为空，第{attempt + 1}次尝试，将重试...")
+                    sleep(retry_delay)
+
+            except Exception as e:
+                logger.error(f"获取剪贴板文本失败(第{attempt + 1}次尝试): {str(e)}")
+                if attempt < max_retries - 1:
+                    sleep(retry_delay)
+
+        logger.error("多次尝试后仍无法获取剪贴板内容")
+        return ''
 
     def get_yingxiangxue_biaoxian_clipboard_text(self):
         """获取影像表现-复制按钮"""
         with allure.step("点击复制按钮-获取影像学表现"):
             logger.info(f"点击复制按钮-获取影像学表现")
             self.yingxiangxue_bianxian_copy_button.wait_for(state="visible")
-            self.page.context.grant_permissions(['clipboard-read', 'clipboard-write']) #复制权限
-            self.yingxiangxue_bianxian_copy_button.click()
-            print(repr(self.get_clipboard_text()))
-            return self.get_clipboard_text()
 
+            # 确保授予权限
+            try:
+                self.page.context.grant_permissions(['clipboard-read', 'clipboard-write'])
+                logger.info("已授予剪贴板权限")
+            except Exception as e:
+                logger.warning(f"授予剪贴板权限时出错: {str(e)}")
+
+            # 点击复制按钮
+            self.yingxiangxue_bianxian_copy_button.click()
+
+            # 增加等待时间
+            sleep(1)  # 增加到1秒
+
+            # 先直接获取元素文本作为备选方案
+            direct_text = self.yingxiangxue_bianxian.inner_text().strip()
+            if direct_text:
+                logger.info(f"直接获取到元素文本，长度: {len(direct_text)}")
+
+            # 尝试获取剪贴板内容
+            result = self.get_clipboard_text()
+
+            # 如果剪贴板为空但直接获取到了文本，使用直接获取的文本
+            if not result and direct_text:
+                logger.info("剪贴板为空，使用直接获取的元素文本")
+                result = direct_text
+
+            logger.info(f"最终返回内容: {repr(result)}")
+            return result
 
     def get_yinxiang_clipboard_text(self):
         """获取影像表现-复制按钮"""
         with allure.step("点击复制按钮-获取印象"):
             logger.info(f"点击复制按钮-获取印象")
             self.yinxiang_copy_button.wait_for(state="visible")
-            self.page.context.grant_permissions(['clipboard-read', 'clipboard-write'])  # 复制权限
+
+            # 确保授予权限
+            try:
+                self.page.context.grant_permissions(['clipboard-read', 'clipboard-write'])
+                logger.info("已授予剪贴板权限")
+            except Exception as e:
+                logger.warning(f"授予剪贴板权限时出错: {str(e)}")
+
+            # 点击复制按钮
             self.yinxiang_copy_button.click()
-            return self.get_clipboard_text()
+
+            # 增加等待时间
+            sleep(1)  # 增加到1秒
+
+            # 先直接获取元素文本作为备选方案
+            direct_text = self.impression.inner_text().strip()
+            if direct_text:
+                logger.info(f"直接获取到元素文本，长度: {len(direct_text)}")
+
+            # 尝试获取剪贴板内容
+            result = self.get_clipboard_text()
+
+            # 如果剪贴板为空但直接获取到了文本，使用直接获取的文本
+            if not result and direct_text:
+                logger.info("剪贴板为空，使用直接获取的元素文本")
+                result = direct_text
+
+            logger.info(f"最终返回内容: {repr(result)}")
+            return result  # 添加这一行，确保函数返回结果
+
