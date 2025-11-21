@@ -25,12 +25,16 @@ class LoginPage:
         self.zhishiku_gailan_menu = self.page.get_by_role("menubar").get_by_role("link", name="知识库概览")
         self.zhishiku_jiansuo_menu = self.page.get_by_role("link", name="知识库检索")
 
+
         self.shuju_guanli_menu = self.page.get_by_role("menuitem", name="数据管理").locator("div")
         self.report_history_menu = self.page.get_by_role("link", name="报告历史数据")
 
         self.xitong_guanli_menu = self.page.get_by_role("menuitem", name="系统管理").locator("div")
         self.user_menu = self.page.get_by_role("link", name="用户管理")
         self.role_menu = self.page.get_by_role("link", name="角色管理")
+
+        self.tuji_guanli_menu = self.page.get_by_role("menuitem", name="图集管理").locator("div")
+        self.tuji_liebiao_menu = self.page.get_by_role("link", name="图集列表")
 
 
     # 定义操作
@@ -73,6 +77,16 @@ class LoginPage:
         self.page.get_by_text("后台管理").click()
         sleep(0.5)
         self.zhishiku_jiansuo_menu.click()
+        return self.page
+
+    @allure.step("切换图集列表")
+    def navigt_tuji_liebiao(self):
+        logger.info("切换图集列表页")
+        self.page.get_by_text("后台管理").click()
+        sleep(0.5)
+        self.tuji_guanli_menu.click()
+        sleep(0.5)
+        self.tuji_liebiao_menu.click()
         return self.page
 
     @allure.step("切换用户管理页")

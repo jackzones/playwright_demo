@@ -72,7 +72,7 @@ def _login(page, pytestconfig, is_goto_project_detail=False):
 
     login_page = LoginPage(page, base_url=base_url)
 
-    login_page.login("admin", "User123456")
+    login_page.login("xurj", "User123456")
     if is_goto_project_detail:
         logger.info("登录并进入项目详情")
         login_page.navigt_jiegouhua()

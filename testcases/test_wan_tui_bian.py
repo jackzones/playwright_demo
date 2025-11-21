@@ -138,15 +138,28 @@ class TestAddReportWanTuiBian:
     def test_add_report_jian10(self, fangshe_bianhao, buweimingcheng, leibie, xibuwei, tree1, data1, tree2, data2, tree3, data3, tree4, data4, tree5, data5, tree6, data6, expect_top, expect_btm1, expect_btm2, expect_btm3, login_and_navigate_to_jiegouhua):
         page = login_and_navigate_to_jiegouhua
         page.page_add_report_wan_tuibian_title7(fangshe_bianhao, buweimingcheng, leibie, xibuwei, tree1, data1, tree2, data2, tree3, data3, tree4, data4, tree5, data5, tree6, data6)
+        # with allure.step("查看报告结果"):
+        #     first_title = page.page_get_form_info_rule_title_top()
+        #     second_title = page.page_get_form_info_rule_title_bottom()
+        #     # info_btm = page.page_get_form_info_rule_title_third()
+        #     info = page.page_get_form_info_content()
+        # with allure.step("开始断言"):
+        #     # assert xibuwei == first_title
+        #     assert expect_top == first_title
+        #     assert expect_btm1 in second_title
+        #     assert expect_btm2 in second_title
+        #     assert expect_btm3 in second_title
+        #     assert '未见明显骨折征象，必要时CT检查明确细微骨质情况' not in info
+
         with allure.step("查看报告结果"):
             first_title = page.page_get_form_info_rule_title_top()
             second_title = page.page_get_form_info_rule_title_bottom()
-            # info_btm = page.page_get_form_info_rule_title_third()
+            info_btm = page.page_get_form_info_rule_title_third()
             info = page.page_get_form_info_content()
         with allure.step("开始断言"):
-            # assert xibuwei == first_title
-            assert expect_top == first_title
-            assert expect_btm1 in second_title
-            assert expect_btm2 in second_title
-            assert expect_btm3 in second_title
-            assert '未见明显骨折征象，必要时CT检查明确细微骨质情况' not in info
+            assert xibuwei == first_title
+            assert expect_top == second_title
+            assert expect_btm1 in info_btm
+            assert expect_btm2 in info_btm
+            assert expect_btm3 in info_btm
+            assert '未见明显骨折征象，必要时CT检查明确细微骨质情况'  in info

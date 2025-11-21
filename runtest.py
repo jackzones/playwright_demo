@@ -15,6 +15,7 @@ def run():
         'testcases/',
         # '-m', 'copy',
         # '--lf',
+        '-m', 'not old_feature',
         '--reruns', '1',
         '--reruns-delay', '1',
         '--alluredir', cm.dir_report_json  # 分开作为两个列表元素

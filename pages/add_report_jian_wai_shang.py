@@ -41,7 +41,7 @@ class AddReportJianWaiShang(AddReportBasePage):
         self.suntree_gangxiajijian_jianxiu = self.page.get_by_text("肩袖部", exact=True).nth(1)
         # 肩袖 数据项 序号定位
         self.jianxiu_checkbox_1 = self.page.get_by_role("row", name="正常").locator("span").nth(1)  # 第一行"正常"选项
-        self.jianxiu_checkbox_2 = self.page.get_by_role("row", name="部分撕裂I°").locator("span").nth(1)
+        self.jianxiu_checkbox_2 = self.page.get_by_role("row", name="部分损伤I°").locator("span").nth(1)
         self.jianxiu_checkbox_3 = self.page.get_by_role("row", name="部分撕裂II°").locator("span").nth(1)
         self.jianxiu_checkbox_4 = self.page.get_by_role("row", name="部分撕裂III°").locator("span").nth(1)
         self.jianxiu_checkbox_5 = self.page.get_by_role("row", name="局部全层撕裂IV").locator("span").nth(1)

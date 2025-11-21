@@ -23,7 +23,8 @@ class AddReportHuaiWaiShang(AddReportBasePage):
         #标题选择
         self.title_fuzhougu = self.page.get_by_title("副舟骨综合征").locator("span").nth(1)
         self.title_juhou_sanjiaogu = self.page.get_by_title("距后三角骨综合征").locator("span").nth(1)
-
+        # 外伤合并退变
+        self.tab_ruanzhuzhi = self.page.locator('span.el-radio-button__inner:has-text("软组织")').first
 
     # 骨质（骨髓水肿），距后三角骨，骨髓水肿
     def page_gusui_suizhong_select_broken(self, tree):
@@ -55,6 +56,19 @@ class AddReportHuaiWaiShang(AddReportBasePage):
             logger.error(f"无效的部位参数: {tree}")
             raise ValueError(f"无效的部位参数: {tree}")
 
+    def page_side_tuibian_select(self, name):
+        with allure.step("点击左侧退变"):
+            logger.info(f"点击左侧退变")
+            if name == "左踝":
+                self.tab_ruanzhuzhi.click()
+                self.page.get_by_text("左 踝关节退变").click()
+            elif name == "右踝":
+                self.tab_ruanzhuzhi.click()
+                self.page.get_by_text("右 踝关节退变").click()
+            else:
+                logger.info(f"无效的部位参数: {name}")
+                raise ValueError(f"无效的部位参数: {name}")
+
     def page_guzhi_gusui_suizhong_data(self, tree):
         with allure.step("点击骨质（骨髓水肿）"):
             logger.info(f"点击骨质（骨髓水肿）")
@@ -83,3 +97,10 @@ class AddReportHuaiWaiShang(AddReportBasePage):
         self.page_guzhi_gusui_suizhong_data(tree4)
         self.page_tijiao_report()
         self.page_select_title1()
+
+    def page_add_report_huai_waishang_title3(self, fangshe_bianhao, buweimingcheng, leibie, xibuwei, tree1):
+        self.add_simple_base_info(fangshe_bianhao, buweimingcheng, leibie, xibuwei)
+        self.page_side_tuibian_select(xibuwei)
+        sleep(2)
+        self.page_guzhi_gusui_suizhong_data(tree1)
+        self.page_tijiao_report()
