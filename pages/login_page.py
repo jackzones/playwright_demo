@@ -42,7 +42,7 @@ class LoginPage:
     def login(self, username: str, password: str):
         logger.info(f"打开登录页面: {self.base_url + '/login'}，填写账号密码")
         # self.page.goto(self.base_url + "/login")
-        self.page.goto(self.base_url + "/login", timeout=10_000, wait_until="networkidle")
+        self.page.goto(self.base_url + "/login", timeout=30_000, wait_until="networkidle")
         self.username_input.fill(username)
         self.password_input.fill(password)
         logger.info("点击登录按钮")

@@ -15,9 +15,10 @@ def run():
         'testcases/',
         # '-m', 'copy',
         # '--lf',
+        '-n', '10',
         '-m', 'not old_feature',
-        '--reruns', '1',
-        '--reruns-delay', '1',
+        '--reruns', '3',
+        '--reruns-delay', '5',
         '--alluredir', cm.dir_report_json  # 分开作为两个列表元素
     ])
     # pytest.main(['testcase/web/test_login/', '-m', 'smoke','--alluredir=%s' % cm.dir_report_json])
