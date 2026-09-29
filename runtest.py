@@ -15,7 +15,7 @@ def run():
         'testcases/',
         # '-m', 'copy',
         # '--lf',
-        '-n', '10',
+        '-n', '6',
         '-m', 'not old_feature',
         '--reruns', '3',
         '--reruns-delay', '5',

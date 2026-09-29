@@ -53,8 +53,9 @@ class TestAddReportJianWaiShang:
         with allure.step("开始断言"):
             assert expect not in info
 
+    @pytest.mark.old_feature
     @pytest.mark.titles
-    @allure.story("报告添加-多印象标题-左/右肩关节Bankart-Hill-Sachs损伤、左/右肩关节反Bankart-反Hill-Sachs损伤")
+    @allure.story("报告添加-多印象标题-左/右肩关节Bankart-Hill-Sachs损伤、左/右肩关节反Bankart-反Hill-Sachs损伤 前脱位和后脱位只能选一个所以不存在此case")
     @allure.title("添加成功测试-{fangshe_bianhao}-{buweimingcheng}-{leibie}-{xibuwei}-{data1}-{tree2}-{suntree2}-{data2}-{tree3}-{suntree3}-{data3}-{tree4}-{data4}-{tree5}-{data5}-{data6}-{tree7}-{suntree7}-{data7}-{tree8}-{suntree8}-{data8}-{tree9}-{data9}-{expect}")
     @pytest.mark.parametrize("fangshe_bianhao, buweimingcheng, leibie, xibuwei, data1, tree2, suntree2, data2, tree3, suntree3, data3, tree4, data4, tree5, data5, data6, tree7, suntree7, data7, tree8, suntree8, data8, tree9, data9, expect", new_report_title_jian_wai_shang_3)
     # 多参数的参数化，这样写的话参数可以直接使用，但在parametrize与测试函数的形参中需要列出所有的参数，并且参数的顺序必须一致

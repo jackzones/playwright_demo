@@ -1529,7 +1529,7 @@ new_report_title_jian_wai_shang_1:
     data5: '6'
     expect: 左肩关节Bankart-Hill-Sachs损伤：
   - case6: 印象中标题规则-右肩关节Bankart-Hill-Sachs损伤
-    fangshe_bianhao: jian_waishang_1_5
+    fangshe_bianhao: jian_waishang_1_6
     buweimingcheng: 肩
     leibie: 外伤
     xibuwei: 右肩
